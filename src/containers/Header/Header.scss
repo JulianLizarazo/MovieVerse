@@ -1,29 +1,107 @@
 @use "../../styles/colors.scss";
 @use "../../styles/theme.scss";
+@use "../../styles/variables.scss";
 
 .header{
     width: 100%;
     height: 50px;
+    padding: 0 20px;
     position: sticky;
     top:0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    z-index: 500;
 
     &__search{
         z-index: 200;
+    }
+
+    &__options{
+        display: flex;
+        min-width: 130px;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+      
+        
     }
 }
 
 .search-section{
     width: 100%;
-    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 20;
     z-index: 150;
+    box-shadow: 0px 10px 19px -5px #504b4b;
+
+    &__input, &__button{
+        font-family: variables.$font-family;
+        height: 50%;
+    }
+
+    &__input{
+        width: 50%;
+        border-radius: 5px 0 0 5px;
+        border: none;
+        padding-inline-start: 10px;
+        padding-inline-end: 10px;
+
+        &::placeholder{
+            width: 100%;
+            
+        }
+    }
+
+    &__button{
+        width: 20%;
+        border-radius: 0 5px 5px 0;
+        border: none;
+    }
 
 }
 
 .search-button{
     cursor: pointer;
+    z-index: 2;
+    
+}
+
+.box-opacity{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 40%;
+
+}
+
+
+.search-desktop{
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 1;
+
+    &__input{
+        margin-block-start: 5px;
+        
+        height: 40px;
+      
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+
+        &-input{
+            width: 91%;
+            height: 100%;
+            @extend .search-section__input;
+        }
+    }
 }

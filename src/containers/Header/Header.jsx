@@ -6,6 +6,7 @@ import { BsSearch } from "react-icons/bs";
 import "./Header.scss";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const variants = {
   open: {
@@ -19,14 +20,22 @@ const variants = {
 };
 
 const transition = { type: "spring", duration: 0.1, stiffness: 100 };
-const spring = {
-  type: "spring",
-  stiffness: 700,
-  damping: 30,
+
+const variantsSearchInput = {
+  open: {
+    width: "400px",
+    opacity: 1,
+  },
+
+  closed: {
+    width: "0px",
+    opacity: 0,
+  },
 };
 
 const Header = () => {
   const [clickSearchButton, setClickSearchButton] = useState(false);
+  const { width } = useWindowSize();
   const { theme } = useContext(ColorModeContext);
 
   const handleSearchClick = () => {
@@ -39,24 +48,45 @@ const Header = () => {
         <div className="text">
           <Title />
         </div>
-        <div className="text">
-          <BsSearch onClick={handleSearchClick} className="search-button" />
-        </div>
-        <ChangeColorModeButton />
-        <HamburguerMenu />
+        <section className="header__options">
+          <div className="text search-desktop">
+            <BsSearch onClick={handleSearchClick} className="search-button" />
+            {width > 769 && clickSearchButton && (
+              <motion.section
+                className="search-desktop__input"
+                animate={clickSearchButton ? "open" : "closed"}
+                variants={variantsSearchInput}
+                transition={transition}
+              >
+                <input
+                  placeholder="Pelicula o show de TV"
+                  className="search-desktop__input-input"
+                />
+              </motion.section>
+            )}
+          </div>
+          <ChangeColorModeButton />
+          <HamburguerMenu />
+        </section>
       </header>
+      {width < 769 && (
+        <motion.section
+          className={`search-section ${theme}`}
+          initial={false}
+          animate={clickSearchButton ? "open" : "closed"}
+          variants={variants}
+          transition={transition}
+        >
+          <input
+            placeholder="Pelicula o show de TV"
+            className="search-section__input"
+          />
 
-      <motion.section
-        className="search-section"
-        initial={false}
-        animate={clickSearchButton ? "open" : "closed"}
-        variants={variants}
-        transition={transition}
-      >
-        <input placeholder="Pelicula o show de TV" />
+          <button className="search-section__button">Buscar</button>
+        </motion.section>
+      )}
 
-        <button>Buscara</button>
-      </motion.section>
+      {clickSearchButton && width < 769 && <div className="box-opacity"></div>}
     </>
   );
 };
