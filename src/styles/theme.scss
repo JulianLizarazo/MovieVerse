@@ -1,0 +1,20 @@
+@use "./colors.scss";
+
+
+.light {
+    background-color: colors.$light-mode-primary;
+    
+    .text{
+        color: colors.$light-mode-text;
+    }
+
+}
+
+.dark {
+    background-color: colors.$dark-mode-secondary;
+    
+    .text{
+        color: colors.$dark-mode-text;
+    }
+}
+

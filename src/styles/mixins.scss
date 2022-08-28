@@ -1,0 +1,10 @@
+
+
+@mixin themeGeneratorCustomButtom($backgroundcColor, $color){
+    background-color: $backgroundcColor;
+    border: 1px solid $color;
+
+    .text-button{
+        color: $color;
+    }
+}

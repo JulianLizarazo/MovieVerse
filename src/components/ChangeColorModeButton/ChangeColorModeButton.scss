@@ -1,7 +1,11 @@
+@use "../../styles/colors.scss";
+@use "../../styles/mixins.scss";
+
+
 .change-container{
     width: 50px;
     height: 10px;
-    background-color: white;
+    
     border-radius: 10px;
     position: relative;
     cursor: pointer;
@@ -9,7 +13,7 @@
     &__circle{
         width:  25px;
         height: 25px;
-        background-color: white;
+        
         border-radius: 50%;
         position: absolute;
         bottom: -8px;
@@ -17,10 +21,26 @@
         justify-content: center;
         align-items: center;
 
-        &-sun{
-            width: 100%;
+        &-icon{
+            width: 90%;
             
         }
         
     }
+}
+
+.light-button{
+   
+    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-light-mode, colors.$light-mode-third);
+
+}
+
+.dark-button{
+    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-dark-mode, colors.$dark-mode-third);  
+}
+
+.text-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

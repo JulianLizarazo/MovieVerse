@@ -1,4 +1,4 @@
-@use "./styles/variables.scss";
+@use "./styles/colors.scss";
 
 *{
     box-sizing: border-box;
@@ -7,7 +7,6 @@
 }
 
 body {
-    background-color: variables.$dark-mode-green;
     font-family: 'Maven Pro', sans-serif;
 }
 

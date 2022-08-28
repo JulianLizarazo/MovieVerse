@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ColorModeContext } from "../../context/ColorModeContext";
 import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 
@@ -16,6 +17,7 @@ const transtition = { type: "spring", duration: 1, stiffness: 33, delay: 0.1 };
 
 const HamburguerMenu = () => {
   const [isOpen, setOpen] = useState(false);
+  const { theme } = useContext(ColorModeContext);
 
   const toggleMenu = () => {
     setOpen(!isOpen);
