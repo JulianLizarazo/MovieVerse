@@ -3,7 +3,7 @@ import { API } from "../api/axios"
 
 const getTrendingMovies = async () => {
   try{
-    const response = await API('trending/all/day');
+    const response = await API('trending/movie/day');
 
     return response;
   } catch (error){

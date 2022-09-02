@@ -14,9 +14,9 @@ export const useTrendingMovies = () => {
             
             dataTrendingMovies.results.forEach(trendingMovie => dataMovies.push({
                 id: trendingMovie.id,
-                title: trendingMovie.title,
                 alt: `Movie ${trendingMovie.title}`,
                 poster: trendingMovie.poster_path,
+                voteAverage: trendingMovie.vote_average
                 
             }))
 

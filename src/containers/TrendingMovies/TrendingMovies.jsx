@@ -19,9 +19,9 @@ export default function TrendingMovies() {
             <TrendingMovie
               key={trendingMovie.id}
               id={trendingMovie.id}
-              title={trendingMovie.title}
               alt={trendingMovie.alt}
               poster={trendingMovie.poster}
+              voteAverage={trendingMovie.voteAverage}
             />
           ))}
         </section>

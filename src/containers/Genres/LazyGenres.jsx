@@ -2,16 +2,16 @@ import React, { Suspense } from "react";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { TrendingMovieLoader } from "../../loaders/TrendingMovieLoader";
 
-const TrendingMovies = React.lazy(() => import('./TrendingMovies'));
-const LazyTrendingMovie = () => {
+const Genres = React.lazy(() => import('./Genres'));
+const LazyGenres = () => {
   
   const { isNearScreen, fromRef } = useNearScreen();
 
   return (
     <div ref={fromRef}>
-      <Suspense fallback={<TrendingMovieLoader/>}>{isNearScreen ? <TrendingMovies /> : <TrendingMovieLoader/>}</Suspense>
+      <Suspense fallback={<TrendingMovieLoader/>}>{isNearScreen ? <Genres /> : <TrendingMovieLoader/>}</Suspense>
     </div>
   );
 };
 
-export { LazyTrendingMovie };
+export { LazyGenres };

@@ -6,19 +6,18 @@ import { Layout } from "../templates/Layout/Layout";
 
 function App() {
   const themeInitialState = useChangeColorMode();
+
   return (
     <ColorModeContext.Provider value={themeInitialState}>
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route exact path="/" element={<Home/>} />
-        </Routes>
-      </Layout>
-   
-    </BrowserRouter>
-    
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </ColorModeContext.Provider>
-  )
+  );
 }
 
 export { App };
