@@ -1,0 +1,11 @@
+.trending-movies {
+    padding-inline-start: 10px;
+    padding-block-start: 30px;
+    padding-block-end: 30px;
+  &__container {
+    display: flex;
+    overflow-x: auto;
+    margin-block-start: 30px;
+    
+  }
+}

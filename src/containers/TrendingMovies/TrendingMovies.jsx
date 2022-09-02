@@ -1,25 +1,31 @@
+import { useContext } from "react";
 import { TrendingMovie } from "../../components/TrendingMovie/TrendingMovie";
 import { useTrendingMovies } from "../../hooks/useTrendingMovies";
-import "./TrendingMovies.scss"; 
+import { ColorModeContext } from "../../context/ColorModeContext";
 
+import "./TrendingMovies.scss";
 
-const TrendingMovies = () => {
+export default function TrendingMovies() {
   const { trendingMovies } = useTrendingMovies();
 
+  const { theme } = useContext(ColorModeContext);
+
   return (
-    <section className="trending-movies">
-      <h2>Tendencias</h2>
-      {trendingMovies.map((trendingMovie) => (
-        <TrendingMovie
-          key={trendingMovie.id}
-          id={trendingMovie.id}
-          title={trendingMovie.title}
-          alt={trendingMovie.alt}
-          poster={trendingMovie.poster}
-        />
-      ))}
+    <section className={`trending-movies ${theme}`}>
+      <div className="text">
+        <h2>Tendencias</h2>
+        <section className="trending-movies__container">
+          {trendingMovies.map((trendingMovie) => (
+            <TrendingMovie
+              key={trendingMovie.id}
+              id={trendingMovie.id}
+              title={trendingMovie.title}
+              alt={trendingMovie.alt}
+              poster={trendingMovie.poster}
+            />
+          ))}
+        </section>
+      </div>
     </section>
   );
-};
-
-export { TrendingMovies };
+}
