@@ -1,4 +1,103 @@
+@use "../../styles/mixins.scss";
+@use "../../styles/colors.scss";
+
 .genre{
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    margin: 30px 10px 20px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+
+    
 }
+
+.border-light{
+    border: 2px solid colors.$light-mode-text;
+}
+
+.border-dark{
+    border: 2px solid colors.$dark-mode-third;
+}
+
+._28{
+    @include mixins.generateColor(rgb(244, 202, 96));
+}
+
+._12{
+    @include mixins.generateColor(#58d3dc);   
+}
+
+._16{
+    @include mixins.generateColor(#b80982);
+}
+
+._35{
+    @include mixins.generateColor(#90765a);
+}
+
+._80{
+    @include mixins.generateColor(#4e4810);
+}
+
+._99{
+    @include mixins.generateColor(#19fa7c);
+}
+
+._18{
+    @include mixins.generateColor(#be5d4a);
+}
+
+._10751{
+    @include mixins.generateColor(#3a13fd);
+}
+
+._14{
+    @include mixins.generateColor(#50a927);
+}
+
+._36{
+    @include mixins.generateColor(#7a7229);
+}
+
+._27{
+    @include mixins.generateColor(#492b7f);
+}
+
+._10402{
+    @include mixins.generateColor(#f33c3f);
+}
+
+._9648{
+    @include mixins.generateColor(#d9a135);
+}
+
+._10749{
+    @include mixins.generateColor(#33760a);
+}
+
+._878{
+    @include mixins.generateColor(#d34ace);
+}
+
+._10770{
+    @include mixins.generateColor(#c25e0f);
+}
+
+._53{
+    @include mixins.generateColor(#807b84);
+}
+
+._10752{
+    @include mixins.generateColor(#434c0a);
+}
+
+._37{
+    @include mixins.generateColor(#fc821e);
+}
+

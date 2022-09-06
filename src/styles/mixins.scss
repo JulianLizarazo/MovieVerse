@@ -8,3 +8,7 @@
         color: $color;
     }
 }
+
+@mixin generateColor($backgroundcColor){
+    background-color: $backgroundcColor;
+}

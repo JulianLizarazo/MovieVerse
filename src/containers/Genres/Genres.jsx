@@ -4,12 +4,15 @@ import { ColorModeContext } from "../../context/ColorModeContext";
 import { useGenres } from "../../hooks/useGenres";
 import "./Genres.scss";
 
+
+
 export default function Genres() {
   const genres = useGenres();
 
-  const { themes } = useContext(ColorModeContext);
+  const { theme } = useContext(ColorModeContext);
+  
   return (
-    <section className={`genres ${themes}`}>
+    <section className={`genres ${theme}`}>
       <div className="text">
         <h2>Géneros</h2>
         <section className="genres__container">
