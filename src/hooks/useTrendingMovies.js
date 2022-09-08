@@ -16,6 +16,8 @@ export const useTrendingMovies = () => {
           alt: `Movie ${trendingMovie.title}`,
           poster: trendingMovie.poster_path,
           voteAverage: trendingMovie.vote_average,
+          title: trendingMovie.title,
+          overview: trendingMovie.overview,
         })
       );
 
