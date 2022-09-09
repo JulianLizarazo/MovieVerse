@@ -22,7 +22,7 @@ const animateProps = {
   textShadow: "0px 0px 8px rgb(255,255,255)",
 };
 
-const DesktopTrendingMovies = () => {
+export default function DesktopTrendingMovies(){
   const { trendingMovies } = useTrendingMovies();
   const swiperRef = useRef(null);
 
@@ -76,4 +76,4 @@ const DesktopTrendingMovies = () => {
   );
 };
 
-export { DesktopTrendingMovies };
+

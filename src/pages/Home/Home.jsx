@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Presentation } from "../../components/Presentation/Presentation";
-import { DesktopTrendingMovies } from "../../containers/DesktopTrendingMovies/DesktopTrendingMovies";
+import { LazyDesktopTrendingMovie } from "../../containers/DesktopTrendingMovies/LazyDesktopTrendingMovies";
 import { LazyGenres } from "../../containers/Genres/LazyGenres";
 import { LazyTrendingMovie } from "../../containers/TrendingMovies/LazyTrendingMovies";
 import { ColorModeContext } from "../../context/ColorModeContext";
@@ -19,7 +19,7 @@ const Home = () => {
         </>
       ) : (
         <>
-          <DesktopTrendingMovies />
+          <LazyDesktopTrendingMovie />
           <Presentation />
         </>
       )}
