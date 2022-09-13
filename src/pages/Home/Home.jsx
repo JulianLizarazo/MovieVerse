@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Presentation } from "../../components/Presentation/Presentation";
+import { About } from "../../containers/About/About";
 import { LazyDesktopTrendingMovie } from "../../containers/DesktopTrendingMovies/LazyDesktopTrendingMovies";
 import { LazyGenres } from "../../containers/Genres/LazyGenres";
 import { LazyTrendingMovie } from "../../containers/TrendingMovies/LazyTrendingMovies";
@@ -14,13 +14,13 @@ const Home = () => {
     <main className={`home ${theme}`}>
       {width < 1023 ? (
         <>
-          <Presentation />
           <LazyTrendingMovie />
+          <About/>
         </>
       ) : (
         <>
           <LazyDesktopTrendingMovie />
-          <Presentation />
+          <About/>
         </>
       )}
 
