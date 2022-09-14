@@ -14,19 +14,20 @@ const searchAnimation = {
   width: "200px",
   height: "50px",
   borderRadius: "10px",
-  border: "1px solid black",
+  border: "2px solid gray",
   display: "flex",
   alignItems: "center",
-  
-}
+};
 
-const Image = ({ path }) => {
+const Image = ({ path, alt }) => {
   return (
     <div>
       <img
         src={`https://image.tmdb.org/t/p/w500${path}`}
         width="250px"
         height="350px"
+        loading="lazy"
+        alt={alt}
       />
     </div>
   );
@@ -92,13 +93,13 @@ const Presentation = () => {
         <section className="text presentation__introduction">
           <div className="presentation__introduction-images">
             <div ref={parallaxDown1.ref}>
-              <Image path={trendingMovies[0]?.poster} />
+              <Image path={trendingMovies[0]?.poster} alt={trendingMovies[0]?.alt}/>
             </div>
             <div ref={parallaxUp.ref}>
-              <Image path={trendingMovies[1]?.poster} />
+              <Image path={trendingMovies[1]?.poster} alt={trendingMovies[1]?.alt}/>
             </div>
             <div ref={parallaxDown2.ref}>
-              <Image path={trendingMovies[2]?.poster} />
+              <Image path={trendingMovies[2]?.poster} alt={trendingMovies[2]?.alt}/>
             </div>
           </div>
           <p ref={parallaxText.ref}>Find </p>
@@ -122,13 +123,13 @@ const Presentation = () => {
         <section className="search-unknown-movies__content">
           <p ref={parallaxText3.ref}>Discover new movies</p>
           <div ref={parallaxSearch.ref}>
-            {!animationSearch ? 
-            <AiOutlineSearch className="search-animation"/>
-            : 
-            <motion.div animate={searchAnimation}>
-              <AiOutlineSearch className="search-animation"/>
-            </motion.div>
-            }
+            {!animationSearch ? (
+              <AiOutlineSearch className="search-animation" />
+            ) : (
+              <motion.div animate={searchAnimation}>
+                <AiOutlineSearch className="search-animation" />
+              </motion.div>
+            )}
           </div>
         </section>
       </section>

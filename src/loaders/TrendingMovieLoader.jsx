@@ -7,7 +7,7 @@ const TrendingMovieLoader = () => {
     const { width } = useWindowSize();
    
   return (
-    <div style={{overflowX:"hidden", padding: "30px 0 30px 10px"}}>
+    <div style={{overflowX:"hidden", padding: "70px 0 30px 10px"}}>
       <ContentLoader
         speed={2}
         width={width}
