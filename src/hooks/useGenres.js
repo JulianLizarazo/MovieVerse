@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGenres } from "../services/getGenres";
 
+
 export const useGenres = () => {
   const [genres, setGenres] = useState([]);
 
@@ -14,13 +15,23 @@ export const useGenres = () => {
       });
 
       setGenres(dataGenres);
+      
     } catch (error) {
-      console.log(error);
+      
     }
   };
+
+  const getGenre = idGenre => {
+
+    const genreToReturn =  genres.find( genre => genre.id === parseInt(idGenre));
+    
+    return genreToReturn?.name;
+  }
+
+ 
   useEffect(() => {
     saveGenres();
   }, []);
 
-  return genres;
+  return {genres, getGenre};
 };

@@ -1,0 +1,9 @@
+.genre-page__movie {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 50px 0;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto-fit, 300px);
+  gap: 40px;
+}

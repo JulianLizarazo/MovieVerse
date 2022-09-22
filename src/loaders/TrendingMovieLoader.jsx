@@ -1,7 +1,6 @@
 import ContentLoader from "react-content-loader";
-import { ColorModeContext } from "../context/ColorModeContext";
 import { useWindowSize } from "../hooks/useWindowSize";
-import { useChangeColorMode } from "../hooks/useChangeColorMode";
+
 
 const TrendingMovieLoader = () => {
     const { width } = useWindowSize();

@@ -7,7 +7,7 @@ import "./Genres.scss";
 
 
 export default function Genres() {
-  const genres = useGenres();
+  const {genres} = useGenres();
 
   const { theme } = useContext(ColorModeContext);
   

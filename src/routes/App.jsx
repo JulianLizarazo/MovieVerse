@@ -4,6 +4,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { useChangeColorMode } from "../hooks/useChangeColorMode";
 import { Home } from "../pages/Home/Home";
 import { Layout } from "../templates/Layout/Layout";
+import { GenrePage } from "../pages/GenrePage/GenrePage";
 
 function App() {
   const themeInitialState = useChangeColorMode();
@@ -15,6 +16,7 @@ function App() {
           <Layout>
             <Routes>
               <Route exact path="/" element={<Home />} />
+              <Route exact path=":idGenre" element={<GenrePage/>} />
             </Routes>
           </Layout>
         </BrowserRouter>
