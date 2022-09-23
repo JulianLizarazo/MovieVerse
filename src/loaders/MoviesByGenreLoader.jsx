@@ -20,6 +20,7 @@ const MoviesByGenreLoader = () => {
         <rect x="928" y="5" rx="10" ry="10" width="200" height="300" />
         <rect x="1228" y="5" rx="10" ry="10" width="200" height="300" />
        
+       
       </ContentLoader>
     </div>
   );

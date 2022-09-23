@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export const useNearScreen = (distance = "50px") => {
+export const useNearScreen = ({distance = "50px", once = true} = {}) => {
   const [isNearScreen, setIsNearScreen] = useState(false);
   const fromRef = useRef();
 
@@ -10,7 +10,9 @@ export const useNearScreen = (distance = "50px") => {
 
       if (element.isIntersecting) {
         setIsNearScreen(true);
-        observer.disconnect();
+        once && observer.disconnect();
+      } else {
+        !once && setIsNearScreen(false);
       }
     };
 

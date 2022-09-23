@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getMoviesByGenre } from "../services/getMoviesByGenre";
 
 const INITIAL_PAGE = 1;
@@ -15,28 +15,25 @@ export const useMoviesByGenre = (genreId) => {
         moviesByGenreTemporal.push(movieByGenre);
       });
 
-      if(moviesByGenre.length === 0){
+      if (moviesByGenre.length === 0) {
         setMoviesByGenre(moviesByGenreTemporal);
       } else {
-        setMoviesByGenre(prevMovie => prevMovie.concat(moviesByGenreTemporal));
+        setMoviesByGenre((prevMovie) =>
+          prevMovie.concat(moviesByGenreTemporal)
+        );
       }
-
-   
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getAllMoviesByGenre(genreId);
-  }, [genreId]);
-
-  useEffect(() => {
-    if (page !== INITIAL_PAGE){
-      getAllMoviesByGenre(genreId, page);
-
+    if (page !== INITIAL_PAGE) {
+      setTimeout(() => {
+        getAllMoviesByGenre(genreId, page);
+      }, 200);
     }
-  }, [page])
+  }, [page]);
 
-  return {moviesByGenre, setPage, page};
+  return { moviesByGenre, setPage, page };
 };
