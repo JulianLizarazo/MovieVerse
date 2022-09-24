@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AiFillStar } from "react-icons/ai";
 import "./MovieByGenre.scss";
+import { useMoviesByGenre } from "../../hooks/useMoviesByGenre";
 
 const animateProps = {
   scale: 1.15,
@@ -10,6 +11,7 @@ const animateProps = {
 };
 
 const MovieByGenre = ({ id, title, poster, voteAverage }) => {
+
   const styles = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w200${poster})`,
   };

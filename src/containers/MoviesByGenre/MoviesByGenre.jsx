@@ -3,19 +3,23 @@ import { MovieByGenre } from "../../components/MovieByGenre/MovieByGenre";
 import { useMoviesByGenre } from "../../hooks/useMoviesByGenre";
 import { useParams } from "react-router-dom";
 import { useNearScreen } from "../../hooks/useNearScreen";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import debounce from "just-debounce-it";
+import { MoviesByGenreLoader } from "../../loaders/MoviesByGenreLoader";
+import { InfiniteScrollingMovieLoader } from "../../loaders/InfiniteScrollingMovieLoader";
 
 export default function MoviesByGenre() {
+  const [infiniteLoading, setInfiniteLoading] = useState(false);
   const { idGenre } = useParams();
-  const { moviesByGenre, setPage} = useMoviesByGenre(idGenre);
-  const { isNearScreen, fromRef } = useNearScreen({ once: false });
-
-
+  const { moviesByGenre, setPage, loading } = useMoviesByGenre(idGenre);
+  const externalRef = useRef();
+  const { isNearScreen } = useNearScreen({
+    externalRef: loading ? null : externalRef,
+    once: false,
+  });
 
   const debounceHandleNextPage = useCallback(
-    
-    debounce(() => setPage(prevPage => prevPage + 1), 200),
+    debounce(() => setPage((prevPage) => prevPage + 1), 200),
     []
   );
 
@@ -24,6 +28,15 @@ export default function MoviesByGenre() {
       debounceHandleNextPage();
     }
   }, [debounceHandleNextPage, isNearScreen]);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setInfiniteLoading(true);
+      }, 300);
+    }
+  }, [loading]);
+
   return (
     <>
       <section className="genre-page__movie">
@@ -36,7 +49,8 @@ export default function MoviesByGenre() {
             voteAverage={movieByGenre.vote_average}
           />
         ))}
-        <div id="viewfinder" ref={fromRef}></div>
+        {infiniteLoading && <InfiniteScrollingMovieLoader />}
+        <div id="viewfinder" ref={externalRef}></div>
       </section>
     </>
   );

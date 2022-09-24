@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getMoviesByGenre } from "../services/getMoviesByGenre";
 
 const INITIAL_PAGE = 1;
 
 export const useMoviesByGenre = (genreId) => {
   const [moviesByGenre, setMoviesByGenre] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
 
   const getAllMoviesByGenre = async (genre, page) => {
     try {
+      setLoading(true);
       const moviesByGenreTemporal = [];
       const allMoviesByGenre = await getMoviesByGenre(genre, page);
       allMoviesByGenre.data.results.forEach((movieByGenre) => {
@@ -22,6 +24,7 @@ export const useMoviesByGenre = (genreId) => {
           prevMovie.concat(moviesByGenreTemporal)
         );
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -35,5 +38,5 @@ export const useMoviesByGenre = (genreId) => {
     }
   }, [page]);
 
-  return { moviesByGenre, setPage, page };
+  return { moviesByGenre, setPage,  loading };
 };
