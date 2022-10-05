@@ -8,6 +8,10 @@
         color: colors.$light-mode-text;
     }
 
+    .third{
+        background-color: colors.$light-mode-third;
+    }
+
 }
 
 .dark {
@@ -15,6 +19,10 @@
     
     .text{
         color: colors.$dark-mode-text;
+    }
+
+    .third{
+        background-color: colors.$dark-mode-third;
     }
 }
 

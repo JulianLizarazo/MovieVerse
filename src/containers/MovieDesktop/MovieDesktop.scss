@@ -1,0 +1,50 @@
+.movie-desktop {
+    &__main-info {
+      width: 100%;
+      height: 50vh;
+      position: relative;
+  
+      &--title {
+        display: flex;
+  
+        position: absolute;
+        bottom: -40%;
+        left: 10%;
+  
+        & img {
+          border-radius: 5px;
+          z-index: 5000;
+        }
+      }
+  
+      &--text {
+        display: flex;
+        flex-direction: column;
+        & h2 {
+          width: 100%;
+          text-align: center;
+          margin: 20px;
+          margin-block-start: 50px;
+          padding: 10px;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+  
+        & div {
+          display: flex;
+          justify-content: space-evenly;
+          padding-inline-start: 40px;
+          
+  
+          & span{
+              
+              font-size: 1.3em;
+              color: white;
+              font-weight: bold;
+              margin: 0 20px;
+          }
+        }
+      }
+    }
+  }
+  

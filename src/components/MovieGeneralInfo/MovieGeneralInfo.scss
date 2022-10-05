@@ -1,0 +1,36 @@
+@use "../../styles/variables.scss";
+@use "../../styles/colors.scss";
+
+.general-info {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  font-size: variables.$text-desktop;
+  padding-block-start: 150px;
+
+  
+  &__cast{
+    width: 70%;
+    margin-inline-start: 100px;
+  }
+
+  &__aside{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-inline-end: 100px;
+    border: 2px solid black;
+   border-radius: 10px;
+   
+   
+  }
+
+}
+
+.link {
+  text-decoration: none;
+}
+

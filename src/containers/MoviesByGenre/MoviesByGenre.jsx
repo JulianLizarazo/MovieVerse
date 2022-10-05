@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { useCallback, useEffect, useRef, useState } from "react";
 import debounce from "just-debounce-it";
-import { MoviesByGenreLoader } from "../../loaders/MoviesByGenreLoader";
 import { InfiniteScrollingMovieLoader } from "../../loaders/InfiniteScrollingMovieLoader";
 
 export default function MoviesByGenre() {

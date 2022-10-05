@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AiFillStar } from "react-icons/ai";
 import "./MovieByGenre.scss";
-import { useMoviesByGenre } from "../../hooks/useMoviesByGenre";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const animateProps = {
   scale: 1.15,
@@ -16,13 +16,15 @@ const MovieByGenre = ({ id, title, poster, voteAverage }) => {
     backgroundImage: `url(https://image.tmdb.org/t/p/w200${poster})`,
   };
 
+  const { width } = useWindowSize();
+
   return (
     <Link to={`/movies/${id}`} className="link">
       <motion.article
         className="movie-by-genre"
         style={styles}
         aria-label={`Movie ${title}`}
-        whileHover={animateProps}
+        whileHover={width > 768 && animateProps}
       >
         <div className="movie-by-genre__popularity">
           <AiFillStar className="movie-by-genre-icon" />
