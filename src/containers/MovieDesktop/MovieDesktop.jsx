@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { MovieCast } from "../../components/MovieCast/MovieCast";
 import { MovieGeneralInfo } from "../../components/MovieGeneralInfo/MovieGeneralInfo";
 import { MovieOverview } from "../../components/MovieOverview/MoveOverview";
+import { MovieProductionCompanies } from "../../components/MovieProductionCompanies/MovieProductionCompanies";
+import { MovieVideos } from "../../components/MovieVideos/MovieVideos";
 import "./MovieDesktop.scss";
 
 const MovieDesktop = ({ movie }) => {
@@ -34,11 +37,9 @@ const MovieDesktop = ({ movie }) => {
         </section>
       </section>
 
-      <MovieOverview
-        overview={movie.overview}
-      />
-
+      <MovieOverview overview={movie.overview} />
       <MovieGeneralInfo
+        id={movie.id}
         original_language={movie.original_language}
         vote_count={movie.vote_count}
         release_date={movie.release_date}
@@ -46,6 +47,11 @@ const MovieDesktop = ({ movie }) => {
         revenue={movie.revenue}
       />
 
+      <MovieProductionCompanies
+        productionCompanies={movie.production_companies}
+      />
+
+      <MovieVideos />
     </>
   );
 };

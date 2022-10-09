@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { MovieCast } from "../../components/MovieCast/MovieCast";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieGeneralInfo.scss";
 
 const MovieGeneralInfo = ({
+  id,
   original_language,
   vote_count,
   release_date,
@@ -12,7 +14,7 @@ const MovieGeneralInfo = ({
   const { theme } = useContext(ColorModeContext);
   return (
     <section className={`general-info ${theme}`}>
-      <section className="general-info__cast">askjasjaslkjaskljaskjlas</section>
+      <MovieCast id={id}/>
       <aside className="general-info__aside  text third">
         <h3>Estadisticas</h3>
         <span>Lenguaje original: {original_language}</span>

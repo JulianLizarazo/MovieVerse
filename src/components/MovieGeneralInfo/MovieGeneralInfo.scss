@@ -5,8 +5,9 @@
   width: 100%;
   height: 500px;
   display: flex;
+  justify-content: space-between;
   font-size: variables.$text-desktop;
-  padding-block-start: 150px;
+  padding-block-start: 100px;
 
   
   &__cast{
