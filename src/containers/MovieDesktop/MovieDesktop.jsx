@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MovieCast } from "../../components/MovieCast/MovieCast";
+import { MovieGalleryImages } from "../../components/MovieGalleryImages/MovieGalleryImages";
 import { MovieGeneralInfo } from "../../components/MovieGeneralInfo/MovieGeneralInfo";
 import { MovieOverview } from "../../components/MovieOverview/MoveOverview";
 import { MovieProductionCompanies } from "../../components/MovieProductionCompanies/MovieProductionCompanies";
@@ -50,6 +50,8 @@ const MovieDesktop = ({ movie }) => {
       <MovieProductionCompanies
         productionCompanies={movie.production_companies}
       />
+
+      <MovieGalleryImages idMovie={movie.id}/>
 
       <MovieVideos />
     </>

@@ -1,0 +1,60 @@
+@use "../../styles/colors.scss";
+
+.movie-gallery-images {
+  &__title {
+    text-align: center;
+  }
+
+  &__backdrop {
+    position: relative;
+
+    &--slide {
+      display: flex;
+      justify-content: center;
+
+      & img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// .section {
+//   margin-block-start: 100px;
+
+//   & h3 {
+//     text-align: center;
+//     margin-block-end: 50px;
+//   }
+// }
+
+// #gallery-next-button {
+//   position: absolute;
+//   z-index: 100;
+//   bottom: 40%;
+//   right: 6%;
+//   cursor: pointer;
+// }
+
+// #gallery-previous-button {
+//   position: absolute;
+//   z-index: 100;
+//   bottom: 40%;
+//   cursor: pointer;
+//   left: 6%;
+// }
+
+// .gallery-icon{
+//   width: 100px;
+//   height: 100px;
+// }
+
+// .gallery-icon-light{
+//   color: colors.$light-mode-text;
+// }
+
+// .gallery-icon-dark{
+//   color: colors.$dark-mode-third;
+// }
+

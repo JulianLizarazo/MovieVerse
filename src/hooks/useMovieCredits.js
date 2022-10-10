@@ -16,7 +16,7 @@ export const useMovieCredits = (movieId) => {
 
   useEffect(() => {
     getOnlyActors();
-  });
+  }, [movieId]);
 
   return { cast };
 };
