@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MovieDesktop } from "../../containers/MovieDesktop/MovieDesktop";
 import { useMovies } from "../../hooks/useMovies";
@@ -7,8 +8,7 @@ import "./Movie.scss";
 const Movie = () => {
   const { idMovie } = useParams();
   const { movie } = useMovies(idMovie);
-  const { width } = useWindowSize();
-  
+  const { width } = useWindowSize();  
 
   return (
     <main className="movie">

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import { ColorModeContext } from "../context/ColorModeContext";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { useChangeColorMode } from "../hooks/useChangeColorMode";
@@ -18,7 +18,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path=":idGenre" element={<GenrePage/>} />
-              <Route exact path="/movies/:idMovie" element={<Movie/>} />
+              <Route exact path="/movies/:idMovie" element={ <Movie/> } />
             </Routes>
           </Layout>
         </BrowserRouter>

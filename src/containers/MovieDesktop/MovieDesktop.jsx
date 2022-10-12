@@ -3,7 +3,7 @@ import { MovieGalleryImages } from "../../components/MovieGalleryImages/MovieGal
 import { MovieGeneralInfo } from "../../components/MovieGeneralInfo/MovieGeneralInfo";
 import { MovieOverview } from "../../components/MovieOverview/MoveOverview";
 import { MovieProductionCompanies } from "../../components/MovieProductionCompanies/MovieProductionCompanies";
-import { MovieVideos } from "../../components/MovieVideos/MovieVideos";
+import { MovieRecommendations } from "../../components/MovieRecommendations/MovieRecommendations";
 import "./MovieDesktop.scss";
 
 const MovieDesktop = ({ movie }) => {
@@ -53,7 +53,8 @@ const MovieDesktop = ({ movie }) => {
 
       <MovieGalleryImages idMovie={movie.id}/>
 
-      <MovieVideos />
+      
+      <MovieRecommendations idMovie={movie.id}/>
     </>
   );
 };
