@@ -1,44 +1,25 @@
-import { Link } from "react-router-dom";
-import { MovieGalleryImages } from "../../components/MovieGalleryImages/MovieGalleryImages";
-import { MovieGeneralInfo } from "../../components/MovieGeneralInfo/MovieGeneralInfo";
-import { MovieOverview } from "../../components/MovieOverview/MoveOverview";
-import { MovieProductionCompanies } from "../../components/MovieProductionCompanies/MovieProductionCompanies";
-import { MovieRecommendations } from "../../components/MovieRecommendations/MovieRecommendations";
+import { LazyMovieGalleryImages } from "../../components/MovieGalleryImages/LazyMovieGalleryImages";
+
+import { LazyMovieGeneralInfo } from "../../components/MovieGeneralInfo/LazyMovieGeneralInfo";
+
+import { LazyMoviePresentation } from "../../components/MoviePresentation/LazyMoviePresentation";
+import { LazyMovieProductionCompanies } from "../../components/MovieProductionCompanies/LazyMovieProductionCompanies";
+import { LazyMovieRecommendations } from "../../components/MovieRecommendations/LazyMovieRecommendations";
+
 import "./MovieDesktop.scss";
 
 const MovieDesktop = ({ movie }) => {
-  const styles = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
-
   return (
     <>
-      <section className="movie-desktop__main-info" style={styles}>
-        <section className="movie-desktop__main-info--title">
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            width="250px"
-            height="350px"
-            alt={`Pelicula ${movie.title}`}
-            loading="lazy"
-          />
-          <div className="movie-desktop__main-info--text">
-            <h2>{movie.title}</h2>
-            <div>
-              {movie?.genres?.map((genre) => (
-                <Link to={`/${genre.id}`} className="link">
-                  <span>{genre.name}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      </section>
+      <LazyMoviePresentation
+        poster_path={movie.poster_path}
+        title={movie.title}
+        genres={movie.genres}
+        backdrop_path={movie.backdrop_path}
+        overview={movie.overview}
+      />
 
-      <MovieOverview overview={movie.overview} />
-      <MovieGeneralInfo
+      <LazyMovieGeneralInfo
         id={movie.id}
         original_language={movie.original_language}
         vote_count={movie.vote_count}
@@ -47,14 +28,13 @@ const MovieDesktop = ({ movie }) => {
         revenue={movie.revenue}
       />
 
-      <MovieProductionCompanies
+      <LazyMovieProductionCompanies
         productionCompanies={movie.production_companies}
       />
 
-      <MovieGalleryImages idMovie={movie.id}/>
+      <LazyMovieGalleryImages idMovie={movie.id} />
 
-      
-      <MovieRecommendations idMovie={movie.id}/>
+      <LazyMovieRecommendations idMovie={movie.id} />
     </>
   );
 };

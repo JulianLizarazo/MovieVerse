@@ -5,7 +5,7 @@ import { useMovieImages } from "../../hooks/useMovieImages";
 import { SwiperMovieGallery } from "../SwiperMovieGallery/SwiperMovieGallery";
 import "./MovieGalleryImages.scss";
 
-const MovieGalleryImages = ({ idMovie }) => {
+export default function MovieGalleryImages({ idMovie }){
   const { theme } = useContext(ColorModeContext);
   const { movieImages } = useMovieImages(idMovie);
 
@@ -18,4 +18,4 @@ const MovieGalleryImages = ({ idMovie }) => {
   );
 };
 
-export { MovieGalleryImages };
+

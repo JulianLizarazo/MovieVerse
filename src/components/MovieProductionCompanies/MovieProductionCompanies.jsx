@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieProductionCompanies.scss";
 
-const MovieProductionCompanies = ({ productionCompanies }) => {
+export default function MovieProductionCompanies({ productionCompanies }){
   const { theme } = useContext(ColorModeContext);
 
   return (
@@ -37,4 +37,4 @@ const MovieProductionCompanies = ({ productionCompanies }) => {
   );
 };
 
-export { MovieProductionCompanies };
+

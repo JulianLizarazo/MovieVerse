@@ -3,14 +3,14 @@ import { MovieCast } from "../../components/MovieCast/MovieCast";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieGeneralInfo.scss";
 
-const MovieGeneralInfo = ({
+export default function MovieGeneralInfo({
   id,
   original_language,
   vote_count,
   release_date,
   budget,
   revenue,
-}) => {
+}){
   const { theme } = useContext(ColorModeContext);
   return (
     <section className={`general-info ${theme}`}>
@@ -27,4 +27,4 @@ const MovieGeneralInfo = ({
   );
 };
 
-export { MovieGeneralInfo };
+

@@ -4,7 +4,7 @@ import "./MovieOverview.scss";
 
 
 
-const MovieOverview = ({overview}) => {
+export default function MovieOverview({overview}){
     const { theme } = useContext(ColorModeContext);
 
     return(
@@ -16,4 +16,3 @@ const MovieOverview = ({overview}) => {
     );
 };
 
-export { MovieOverview }; 

@@ -4,13 +4,13 @@ import { MovieByGenre } from "../MovieByGenre/MovieByGenre";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieRecommendations.scss";
 
-const MovieRecommendations = ({ idMovie }) => {
+export default function MovieRecommendations({ idMovie }) {
   const { movieRecommendations } = useMovieRecommendations(idMovie);
   const { theme } = useContext(ColorModeContext);
 
   const handleReload = () => {
     location.reload();
-  }
+  };
 
   return (
     <section className={`movie-recommendations ${theme}`}>
@@ -23,13 +23,10 @@ const MovieRecommendations = ({ idMovie }) => {
               title={movieRecommendation.title}
               poster={movieRecommendation.poster_path}
               voteAverage={movieRecommendation.vote_average}
-              
             />
           </div>
         ))}
       </section>
     </section>
   );
-};
-
-export { MovieRecommendations };
+}
