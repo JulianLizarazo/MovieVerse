@@ -8,33 +8,18 @@ import { LazyMovieRecommendations } from "../../components/MovieRecommendations/
 
 import "./MovieDesktop.scss";
 
-const MovieDesktop = ({ movie }) => {
+const MovieDesktop = ({ idMovie }) => {
   return (
     <>
-      <LazyMoviePresentation
-        poster_path={movie.poster_path}
-        title={movie.title}
-        genres={movie.genres}
-        backdrop_path={movie.backdrop_path}
-        overview={movie.overview}
-      />
+      <LazyMoviePresentation idMovie={idMovie} />
 
-      <LazyMovieGeneralInfo
-        id={movie.id}
-        original_language={movie.original_language}
-        vote_count={movie.vote_count}
-        release_date={movie.release_date}
-        budget={movie.budget}
-        revenue={movie.revenue}
-      />
+      <LazyMovieGeneralInfo id={idMovie} />
 
-      <LazyMovieProductionCompanies
-        productionCompanies={movie.production_companies}
-      />
+      <LazyMovieProductionCompanies idMovie={idMovie} />
 
-      <LazyMovieGalleryImages idMovie={movie.id} />
+      <LazyMovieGalleryImages idMovie={idMovie} />
 
-      <LazyMovieRecommendations idMovie={movie.id} />
+      <LazyMovieRecommendations idMovie={idMovie} />
     </>
   );
 };

@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
-import { useMovieImages } from "../../hooks/useMovieImages";
+
 
 import { SwiperMovieGallery } from "../SwiperMovieGallery/SwiperMovieGallery";
 import "./MovieGalleryImages.scss";
 
-export default function MovieGalleryImages({ idMovie }){
+export default function MovieGalleryImages({ movieImages }){
   const { theme } = useContext(ColorModeContext);
-  const { movieImages } = useMovieImages(idMovie);
+  
 
   return (
     <section className={`movie-gallery-images ${theme}`}>

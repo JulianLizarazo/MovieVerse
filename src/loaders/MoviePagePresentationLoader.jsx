@@ -5,22 +5,20 @@ const MoviePagePresentationLoader = () => {
   const { width } = useWindowSize();
 
   return (
-    <div style={{ overflowX: "hidden", padding: "30px 0 30px 10px" }}>
+    <div style={{ overflowX: "hidden" }}>
       <ContentLoader
         speed={2}
         width={width}
-        height={360}
-        viewBox={`0 0 ${width} 360`}
+        height={700}
+        viewBox={`0 0 ${width} 700`}
         backgroundColor="#666"
         foregroundColor="#ecebeb"
       >
-        <rect x="695" y="33" rx="10" ry="10" width="200" height="300" />
-        <rect x="114" y="89" rx="0" ry="0" width="1" height="1" />
-        <rect x="7" y="9" rx="0" ry="0" width="587" height="160" />
-        <rect x="55" y="108" rx="0" ry="0" width="122" height="180" />
-        <rect x="196" y="179" rx="0" ry="0" width="355" height="28" />
-        <rect x="196" y="217" rx="0" ry="0" width="355" height="28" />
-        <rect x="194" y="258" rx="0" ry="0" width="355" height="28" />
+        <rect x="0" y="0" rx="0" ry="0" width="100%" height="50vh" />
+        <rect x="10vw" y="30vh" rx="10" ry="10" width="250px" height="350px" />
+        <rect x="40vw" y="52vh" rx="0" ry="0" width="40%" height="28" />
+        <rect x="40vw" y="58vh" rx="0" ry="0" width="40%" height="28" />
+        <rect x="40vw" y="64vh" rx="0" ry="0" width="40%" height="28" />
       </ContentLoader>
     </div>
   );

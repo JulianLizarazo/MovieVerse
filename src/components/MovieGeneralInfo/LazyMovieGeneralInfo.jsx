@@ -1,29 +1,26 @@
 import React, { Suspense } from "react";
+import { useMovies } from "../../hooks/useMovies";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { MoviePageGeneralInfoLoader } from "../../loaders/MoviePageGeneralInfoLoader";
 
 const MovieGeneralInfo = React.lazy(() => import("./MovieGeneralInfo"));
 const LazyMovieGeneralInfo = ({
   id,
-  original_language,
-  vote_count,
-  release_date,
-  budget,
-  revenue,
 }) => {
   const { isNearScreen, fromRef } = useNearScreen({ distance: "20px" });
+  const { movie, loading } = useMovies(id);
 
   return (
     <div ref={fromRef}>
       <Suspense fallback={<MoviePageGeneralInfoLoader />}>
-        {isNearScreen ? (
+        {(isNearScreen && !loading) ? (
           <MovieGeneralInfo
-            id={id}
-            original_language={original_language}
-            vote_count={vote_count}
-            release_date={release_date}
-            budget={budget}
-            revenue={revenue}
+            id={movie.id}
+            original_language={movie.original_language}
+            vote_count={movie.vote_count}
+            release_date={movie.release_date}
+            budget={movie.budget}
+            revenue={movie.revenue}
           />
         ) : (
           <MoviePageGeneralInfoLoader />

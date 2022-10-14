@@ -9,13 +9,12 @@
   font-size: variables.$text-desktop;
   padding-block-start: 100px;
 
-  
-  &__cast{
+  &__cast {
     width: 70%;
     margin-inline-start: 100px;
   }
 
-  &__aside{
+  &__aside {
     width: 30%;
     height: 100%;
     display: flex;
@@ -23,15 +22,25 @@
     align-items: center;
     justify-content: space-evenly;
     margin-inline-end: 100px;
-    border: 2px solid black;
-   border-radius: 10px;
-   
-   
-  }
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 6px;
 
+    & span {
+      text-align: center;
+    }
+  }
 }
 
 .link {
   text-decoration: none;
 }
 
+.aside-light{
+  background-color: colors.$light-mode-secondary;
+  border: 2px solid colors.$light-mode-third;
+}
+
+.aside-dark{
+  background-color: colors.$dark-mode-primary;
+  border: 2px solid colors.$dark-mode-third;
+}

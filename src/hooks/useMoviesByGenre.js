@@ -24,10 +24,10 @@ export const useMoviesByGenre = (genreId) => {
           prevMovie.concat(moviesByGenreTemporal)
         );
       }
-      setLoading(false);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {

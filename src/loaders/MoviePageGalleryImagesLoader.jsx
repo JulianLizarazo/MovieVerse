@@ -14,12 +14,11 @@ const MoviePageGalleryImagesLoader = () => {
         backgroundColor="#666"
         foregroundColor="#ecebeb"
       >
-        <rect x="695" y="33" rx="10" ry="10" width="200" height="300" />
-        <rect x="114" y="89" rx="0" ry="0" width="1" height="1" />
-        <rect x="163" y="20" rx="0" ry="0" width="261" height="32" />
-        <rect x="119" y="89" rx="0" ry="0" width="367" height="239" />
-        <rect x="12" y="152" rx="50" ry="50" width="61" height="61" />
-        <rect x="524" y="159" rx="50" ry="50" width="61" height="61" />
+        
+        <rect x="38vw" y="20" rx="0" ry="0" width="250" height="32" />
+        <rect x="25vw" y="89" rx="0" ry="0" width="50vw" height="25vh" />
+        <rect x="10vw" y="152" rx="50" ry="50" width="100px" height="100px" />
+        <rect x="80vw" y="159" rx="50" ry="50" width="100px" height="100px" />
       </ContentLoader>
     </div>
   );

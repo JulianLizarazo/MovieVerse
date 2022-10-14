@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { useMovieRecommendations } from "../../hooks/useMovieRecommendations";
 import { MovieByGenre } from "../MovieByGenre/MovieByGenre";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieRecommendations.scss";
 
-export default function MovieRecommendations({ idMovie }) {
-  const { movieRecommendations } = useMovieRecommendations(idMovie);
+export default function MovieRecommendations({ movieRecommendations }) {
+  
   const { theme } = useContext(ColorModeContext);
 
   const handleReload = () => {
@@ -15,7 +14,7 @@ export default function MovieRecommendations({ idMovie }) {
   return (
     <section className={`movie-recommendations ${theme}`}>
       <h2 className="text">Recommendations</h2>
-      <section className={`movie-recommendations__movie text`}>
+      <section className={`movie-recommendations__movie text scroll-horizontal-${theme}`}>
         {movieRecommendations?.map((movieRecommendation) => (
           <div onClick={handleReload}>
             <MovieByGenre

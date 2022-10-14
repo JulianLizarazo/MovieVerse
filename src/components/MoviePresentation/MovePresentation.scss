@@ -27,14 +27,16 @@
           margin-block-start: 50px;
           padding: 10px;
           color: white;
-          background-color: rgba(0, 0, 0, 0.4);
+          background-color: rgba(0, 0, 0, 0.6);
         }
   
         & div {
           display: flex;
           justify-content: space-evenly;
-          padding-inline-start: 40px;
-          
+          align-items: center;
+          margin-inline-start: 40px;
+          background-color: rgba(0, 0, 0, 0.6);
+          height: 40px;
   
           & span{
               

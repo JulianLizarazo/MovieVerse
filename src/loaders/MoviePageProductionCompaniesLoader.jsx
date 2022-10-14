@@ -14,11 +14,10 @@ const MoviePageProductionCompaniesLoader = () => {
         backgroundColor="#666"
         foregroundColor="#ecebeb"
       >
-        <rect x="695" y="33" rx="10" ry="10" width="200" height="300" />
-        <rect x="114" y="89" rx="0" ry="0" width="1" height="1" />
-        <rect x="172" y="22" rx="0" ry="0" width="241" height="28" />
-        <rect x="81" y="132" rx="10" ry="10" width="178" height="103" />
-        <rect x="333" y="133" rx="10" ry="10" width="178" height="103" />
+       
+        <rect x="37vw" y="22" rx="0" ry="0" width="241" height="28" />
+        <rect x="30vw" y="132" rx="10" ry="10" width="178" height="103" />
+        <rect x="55vw" y="132" rx="10" ry="10" width="178" height="103" />
       </ContentLoader>
     </div>
   );

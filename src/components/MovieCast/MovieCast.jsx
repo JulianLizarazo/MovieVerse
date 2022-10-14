@@ -9,7 +9,7 @@ const MovieCast = ({ id }) => {
   return (
     <section className={`cast ${theme}`}>
       <h2 className="text">Casting</h2>
-      <section className="cast-movie text">
+      <section className={`cast-movie text scroll-horizontal-${theme}`}>
         {cast.map((actor) => (
           <article className="cast-movie__actor">
             <img
