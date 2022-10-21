@@ -15,6 +15,7 @@ import { AiFillRightCircle, AiFillLeftCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useContext, useRef } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const animateProps = {
   scale: 1.5,
@@ -23,6 +24,7 @@ const animateProps = {
 
 const SwiperMovieGallery = ({ imageType }) => {
   const { theme } = useContext(ColorModeContext);
+  const { width } = useWindowSize();
 
   const ref = useRef(null);
 
@@ -50,23 +52,33 @@ const SwiperMovieGallery = ({ imageType }) => {
             <img
               src={`https://image.tmdb.org/t/p/w1280${image.file_path}`}
               loading="lazy"
+              className="gallery-img"
             />
           </SwiperSlide>
         ))}
-        <motion.div
-          whileHover={animateProps}
-          id="gallery-next-button"
-          onClick={() => ref.current.swiper.slideNext()}
-        >
-          <AiFillRightCircle className={`gallery-icon gallery-icon-${theme}`} />
-        </motion.div>
-        <motion.div
-          whileHover={animateProps}
-          id="gallery-previous-button"
-          onClick={() => ref.current.swiper.slidePrev()}
-        >
-          <AiFillLeftCircle className={`gallery-icon gallery-icon-${theme}`} />
-        </motion.div>
+
+        {width > 1023 && (
+          <>
+            <motion.div
+              whileHover={animateProps}
+              id="gallery-next-button"
+              onClick={() => ref.current.swiper.slideNext()}
+            >
+              <AiFillRightCircle
+                className={`gallery-icon gallery-icon-${theme}`}
+              />
+            </motion.div>
+            <motion.div
+              whileHover={animateProps}
+              id="gallery-previous-button"
+              onClick={() => ref.current.swiper.slidePrev()}
+            >
+              <AiFillLeftCircle
+                className={`gallery-icon gallery-icon-${theme}`}
+              />
+            </motion.div>
+          </>
+        )}
       </Swiper>
     </section>
   );

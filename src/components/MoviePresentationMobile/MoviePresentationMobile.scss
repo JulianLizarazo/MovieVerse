@@ -1,0 +1,54 @@
+@use "../../styles/variables.scss";
+@use "../../styles/colors.scss";
+.movie-presentation-mobile {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  & img {
+    position: absolute;
+    bottom: -50%;
+    width: 200px;
+    height: 300px;
+  }
+}
+
+.movie-mobile-title-and-genres {
+  padding-block-start: 180px;
+  font-size: variables.$text-mobile;
+  
+
+  &__title {
+    text-align: center;
+  }
+
+  &__genres{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-block-start: 50px;
+    
+    & span{
+        margin: 20px;
+        
+        padding: 10px;
+        border-radius: 5px;
+    }
+  }
+}
+
+.genre-mobile-light{
+  border: 1px solid colors.$light-mode-third;
+  background-color: colors.$light-mode-secondary;
+}
+
+.genre-mobile-dark{
+  border: 1px solid colors.$dark-mode-third;
+  background-color: colors.$dark-mode-primary;
+}
+
+

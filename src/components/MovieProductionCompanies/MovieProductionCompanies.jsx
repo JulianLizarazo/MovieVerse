@@ -10,7 +10,7 @@ export default function MovieProductionCompanies({ productionCompanies }){
       <h2 className="movie-production-companies__title text">
         Production Companies
       </h2>
-      <ul className="movie-production-companies__ul text">
+      <ul className={`movie-production-companies__ul text scroll-${theme}`}>
         {productionCompanies?.map((productionCompanie) => (
           <li
             className={`movie-production-companies__ul--li productions-${theme}`}
