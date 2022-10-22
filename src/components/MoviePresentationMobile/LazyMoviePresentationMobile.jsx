@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { useMovies } from "../../hooks/useMovies";
 import { useNearScreen } from "../../hooks/useNearScreen";
+import { MoviePagePresentationLoader } from "../../loaders/MoviePagePresentationLoader";
 
 
 
@@ -15,7 +16,7 @@ const LazyMoviePresentationMobile = ({
   
   return (
     <div ref={fromRef}>
-      <Suspense fallback={<p>cargando pa</p>}>
+      <Suspense fallback={<MoviePagePresentationLoader/>}>
         {(isNearScreen && !loading) ? (
           <>
             <MoviePresentationMobile
@@ -27,7 +28,7 @@ const LazyMoviePresentationMobile = ({
             <MovieOverviewMobile overview={movie.overview} />
           </>
         ) : (
-          <p>cargando pa</p>
+          <MoviePagePresentationLoader/>
         )}
       </Suspense>
     </div>
