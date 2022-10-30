@@ -6,6 +6,7 @@ import { Home } from "../pages/Home/Home";
 import { Layout } from "../templates/Layout/Layout";
 import { GenrePage } from "../pages/GenrePage/GenrePage";
 import { Movie } from "../pages/Movie/Movie";
+import { MovieSearchResults } from "../pages/MovieSearchResults/MovieSearchResults";
 
 function App() {
   const themeInitialState = useChangeColorMode();
@@ -17,8 +18,9 @@ function App() {
           <Layout>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path=":idGenre" element={<GenrePage/>} />
+              <Route exact path=":id" element={<GenrePage/>} />
               <Route exact path="/movies/:idMovie" element={ <Movie/> } />
+              <Route exact path="/search/:id" element={ <MovieSearchResults/> } />
             </Routes>
           </Layout>
         </BrowserRouter>

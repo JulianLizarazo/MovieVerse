@@ -2,106 +2,214 @@
 @use "../../styles/theme.scss";
 @use "../../styles/variables.scss";
 
-.header{
-    width: 100%;
-    height: 50px;
-    padding: 0 20px;
-    position: fixed;
-    top:0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 500;
-    background: rgba(0,0,0,0);
-    &__search{
-        z-index: 200;
-    }
+.header {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0);
+  &__search {
+    z-index: 200;
+  }
 
-    &__options{
-        display: flex;
-        min-width: 130px;
-        height: 100%;
-        justify-content: space-between;
-        align-items: center;
-      
-        
-    }
+  &__options {
+    display: flex;
+    min-width: 130px;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-.search-section{
+.search-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20;
+  z-index: 150;
+  box-shadow: 0px 10px 19px -5px #504b4b;
+
+  &__input,
+  &__button {
+    font-family: variables.$font-family;
+    height: 50%;
+  }
+
+  &__input {
+    width: 50%;
+    border: none;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+
+    &::placeholder {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    width: 20%;
+    border-radius: 0 5px 5px 0;
+    border: none;
+  }
+}
+
+.search-button {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.box-opacity {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 40%;
+}
+
+.search-desktop {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 1;
+
+  & form{
+    height: 40px;
+  }
+
+  &__input {
+    margin-block-start: 5px;
+
+    height: 40px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+
+    &-input {
+      width: 91%;
+      height: 100%;
+      @extend .search-section__input;
+      
+    }
+  }
+}
+
+.search-light {
+  background-color: colors.$light-mode-primary;
+  border: 2px solid colors.$light-mode-secondary;
+
+  &::-webkit-scrollbar{
+    width: 8px;
+    
+    &-thumb{
+        background-color: colors.$light-mode-third;
+        &:hover{
+            background-color: colors.$light-mode-text;
+        }
+    }
+  }
+}
+
+.search-dark {
+  background-color: colors.$dark-mode-secondary;
+  border: 2px solid colors.$dark-mode-primary;
+
+  &::-webkit-scrollbar{
+    width: 8px;
+    
+    &-thumb{
+        background-color: colors.$dark-mode-third;
+
+        &:hover{
+
+            background-color: colors.$dark-mode-text;
+        }
+    }
+  }
+}
+
+.movies-searched {
+  overflow-y: scroll;
+  height: 60vh;
+  width: 91%;
+  
+  &__movie {
+    display: flex;
+    padding: 10px;
+
+    &--content {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &-title {
+        width: 60%;
+      }
+
+      &-votes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50px;
+
+        & svg {
+          width: 50px;
+        }
+      }
+    }
+   
+  }
+
+  &__show-results{
     width: 100%;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 20;
-    z-index: 150;
-    box-shadow: 0px 10px 19px -5px #504b4b;
-
-    &__input, &__button{
-        font-family: variables.$font-family;
-        height: 50%;
-    }
-
-    &__input{
-        width: 50%;
-        border-radius: 5px 0 0 5px;
-        border: none;
-        padding-inline-start: 10px;
-        padding-inline-end: 10px;
-
-        &::placeholder{
-            width: 100%;
-            
-        }
-    }
-
-    &__button{
-        width: 20%;
-        border-radius: 0 5px 5px 0;
-        border: none;
-    }
-
-}
-
-.search-button{
     cursor: pointer;
-    z-index: 2;
-    
-}
-
-.box-opacity{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 40%;
+  }
 
 }
 
 
-.search-desktop{
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    z-index: 1;
 
-    &__input{
-        margin-block-start: 5px;
-        
-        height: 40px;
-      
-        position: absolute;
-        top: 0;
-        right: 0;
-        
-
-        &-input{
-            width: 91%;
-            height: 100%;
-            @extend .search-section__input;
-        }
+.input-light{
+    background-color: colors.$light-mode-primary;
+    border: 2px solid colors.$light-mode-secondary;
+    color: colors.$light-mode-text;
+}
+.input-dark{
+    background-color: colors.$dark-mode-secondary;
+    border: 2px solid colors.$dark-mode-primary;
+    &::placeholder{
+        color: colors.$dark-mode-third;
     }
+    caret-color: colors.$dark-mode-third;
+    color: colors.$dark-mode-text;
+
+}    
+
+.search-link {
+  text-decoration: none;
 }
+
+
+.movie-searched-light:hover{
+    background-color: colors.$light-mode-secondary;
+}
+
+.movie-searched-dark:hover{
+    background-color: colors.$dark-mode-primary;
+}
+

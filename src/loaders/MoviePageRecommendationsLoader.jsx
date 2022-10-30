@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import ContentLoader from "react-content-loader";
 import { useWindowSize } from "../hooks/useWindowSize";
 
