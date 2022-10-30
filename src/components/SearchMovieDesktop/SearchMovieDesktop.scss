@@ -1,0 +1,83 @@
+@use "../../styles/colors.scss";
+
+.movies-searched {
+    overflow-y: scroll;
+    height: 60vh;
+    width: 82%;
+    
+    &__movie {
+      display: flex;
+      padding: 10px;
+  
+      &--content {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+  
+        &-title {
+          width: 60%;
+        }
+  
+        &-votes {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 50px;
+  
+          & svg {
+            width: 50px;
+          }
+        }
+      }
+     
+    }
+  
+    &__show-results{
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  
+  }
+  
+  
+  
+  .input-light{
+      background-color: colors.$light-mode-primary;
+      border: 2px solid colors.$light-mode-secondary;
+      color: colors.$light-mode-text;
+  }
+  .input-dark{
+      background-color: colors.$dark-mode-secondary;
+      border: 2px solid colors.$dark-mode-primary;
+      &::placeholder{
+          color: colors.$dark-mode-third;
+      }
+      caret-color: colors.$dark-mode-third;
+      color: colors.$dark-mode-text;
+  
+  }    
+  
+  .search-link {
+    text-decoration: none;
+  }
+  
+  
+  .movie-searched-light:hover{
+      background-color: colors.$light-mode-secondary;
+  }
+  
+  .movie-searched-dark:hover{
+      background-color: colors.$dark-mode-primary;
+  }
+
+  .search-movies-icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    
+  }

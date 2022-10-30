@@ -8,8 +8,8 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useSearchMovies } from "../../hooks/useSearchMovies";
-import { Link, Navigate } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
+import { Navigate } from "react-router-dom";
+import { SearchMovieDesktop } from "../../components/SearchMovieDesktop/SearchMovieDesktop";
 
 const variants = {
   open: {
@@ -24,21 +24,8 @@ const variants = {
 
 const transition = { type: "spring", duration: 0.1, stiffness: 100 };
 
-const variantsSearchInput = {
-  open: {
-    width: "400px",
-    opacity: 1,
-  },
-
-  closed: {
-    width: "0px",
-    opacity: 0,
-  },
-};
-
 const Header = () => {
   const [keyword, setKeyword] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
   const [navigateToResults, setNavigateToResults] = useState(false);
   const menuRef = useRef();
   const [clickSearchButton, setClickSearchButton] = useState(false);
@@ -66,18 +53,15 @@ const Header = () => {
 
   const hiddenMenu = () => {
     document.getElementById("search-menu").style.display = "none";
-    setIsOpen(false);
   };
 
   const showMenu = () => {
     document.getElementById("search-menu").style.display = "block";
-    setIsOpen(true);
   };
 
   useEffect(() => {
     const handler = (event) => {
       if (!menuRef.current?.contains(event.target)) {
-        setIsOpen(false);
         document.getElementById("search-menu").style.display = "none";
       }
     };
@@ -89,7 +73,9 @@ const Header = () => {
   });
   return (
     <>
-      {navigateToResults && <Navigate to={`/search/${keyword}`} replace={true} />}
+      {navigateToResults && (
+        <Navigate to={`/search/${keyword}`} replace={true} />
+      )}
       <header className={`header ${theme}`}>
         <div className="text">
           <Title />
@@ -97,70 +83,25 @@ const Header = () => {
         <section className="header__options">
           <div className="text search-desktop">
             <BsSearch onClick={handleSearchClick} className="search-button" />
-            {width > 769 && clickSearchButton && (
-              <motion.section
-                className="search-desktop__input"
-                animate={clickSearchButton ? "open" : "closed"}
-                variants={variantsSearchInput}
+            {width > 1023 && clickSearchButton && (
+              <SearchMovieDesktop
+                moviesSearched={moviesSearched}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                showMenu={showMenu}
+                clickSearchButton={clickSearchButton}
                 transition={transition}
-              >
-                <form onSubmit={handleSubmit}>
-                  <input
-                    placeholder="Pelicula o show de TV"
-                    className={`search-desktop__input-input input-${theme}`}
-                    onChange={handleChange}
-                    onClick={showMenu}
-                  />
-                </form>
-                {keyword !== "" && (
-                  <section
-                    className={`movies-searched search-${theme}`}
-                    id="search-menu"
-                    ref={menuRef}
-                  >
-                    {moviesSearched.map((movie) => (
-                      <Link
-                        to={`/movies/${movie.id}`}
-                        className="search-link text"
-                      >
-                        <article
-                          className={`movies-searched__movie movie-searched-${theme}`}
-                          onClick={hiddenMenu}
-                        >
-                          <img
-                            src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
-                            loading="lazy"
-                            width="70px"
-                            height="90px"
-                          />
-                          <div className="movies-searched__movie--content">
-                            <span className="movies-searched__movie--content-title">
-                              {movie.title}
-                            </span>
-                            <div className="movies-searched__movie--content-votes">
-                              <AiFillStar />
-                              <span>{movie.vote_average}</span>
-                            </div>
-                          </div>
-                        </article>
-                      </Link>
-                    ))}
-                    <p
-                      onClick={handleSubmit}
-                      className="movies-searched__show-results"
-                    >
-                      Ver más resultados
-                    </p>
-                  </section>
-                )}
-              </motion.section>
+                keyword={keyword}
+                menuRef={menuRef}
+                hiddenMenu={hiddenMenu}
+              />
             )}
           </div>
           <ChangeColorModeButton />
           <HamburguerMenu />
         </section>
       </header>
-      {width < 769 && (
+      {width < 1023 && (
         <motion.section
           className={`search-section ${theme}`}
           initial={false}

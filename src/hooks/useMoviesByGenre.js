@@ -11,11 +11,12 @@ export const useMoviesByGenre = (genreId, isSearch = false) => {
 
   const getAllMoviesByGenre = async (genre, page) => {
     try {
-      
       setLoading(true);
       const moviesByGenreTemporal = [];
-      const allMoviesByGenre =  !isSearch ? await getMoviesByGenre(genre, page) : await getMovieSearched({page: page-1, movieToSearch: genre});
-      console.log(allMoviesByGenre);
+      const allMoviesByGenre = !isSearch
+        ? await getMoviesByGenre(genre, page)
+        : await getMovieSearched({ page: page - 1, movieToSearch: genre });
+
       allMoviesByGenre.data.results.forEach((movieByGenre) => {
         moviesByGenreTemporal.push(movieByGenre);
       });
@@ -41,5 +42,5 @@ export const useMoviesByGenre = (genreId, isSearch = false) => {
     }
   }, [page]);
 
-  return { movies, setPage,  loading };
+  return { movies, setPage, loading };
 };
