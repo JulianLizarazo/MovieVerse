@@ -10,6 +10,7 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { useSearchMovies } from "../../hooks/useSearchMovies";
 import { Navigate } from "react-router-dom";
 import { SearchMovieDesktop } from "../../components/SearchMovieDesktop/SearchMovieDesktop";
+import { SearchMovieMobile } from "../../components/SearchMoviesMobile/SearchMovieMobile";
 
 const variants = {
   open: {
@@ -39,12 +40,13 @@ const Header = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    hiddenMenu();
+
     setNavigateToResults(true);
+    hiddenMenu();
+
     setTimeout(() => {
       setNavigateToResults(false);
     }, 10);
-    console.log(keyword);
   };
 
   const handleChange = (evt) => {
@@ -53,10 +55,18 @@ const Header = () => {
 
   const hiddenMenu = () => {
     document.getElementById("search-menu").style.display = "none";
+    if (width < 1023) {
+      document.getElementById("search-menu-mobile").style.opacity = "0";
+      document.getElementById("box-opacity").style.display = "none";
+    }
   };
 
   const showMenu = () => {
     document.getElementById("search-menu").style.display = "block";
+    if (width < 1023) {
+      document.getElementById("search-menu-mobile").style.opacity = "1";
+      document.getElementById("box-opacity").style.display = "block";
+    }
   };
 
   useEffect(() => {
@@ -102,23 +112,23 @@ const Header = () => {
         </section>
       </header>
       {width < 1023 && (
-        <motion.section
-          className={`search-section ${theme}`}
-          initial={false}
-          animate={clickSearchButton ? "open" : "closed"}
+        <SearchMovieMobile
           variants={variants}
           transition={transition}
-        >
-          <input
-            placeholder="Pelicula o show de TV"
-            className="search-section__input"
-          />
-
-          <button className="search-section__button">Buscar</button>
-        </motion.section>
+          clickSearchButton={clickSearchButton}
+          moviesSearched={moviesSearched}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          keyword={keyword}
+          menuRef={menuRef}
+          hiddenMenu={hiddenMenu}
+          showMenu={showMenu}
+        />
       )}
 
-      {clickSearchButton && width < 769 && <div className="box-opacity"></div>}
+      {clickSearchButton && width < 769 && (
+        <div className="box-opacity" id="box-opacity"></div>
+      )}
     </>
   );
 };

@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <main className={`home ${theme}`}>
-      {width < 1023 ? (
+      {width < 1023 ? ( 
         <>
           <LazyTrendingMovie />
           <About/>
