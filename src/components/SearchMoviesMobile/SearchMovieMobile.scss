@@ -7,6 +7,7 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   top: 100px;
   background-color: colors.$light-mode-primary;
 
@@ -25,4 +26,10 @@
   display: flex;
   justify-content: center;
   margin-block-start: 60px;
+}
+
+@media screen and (min-width: 600px){
+  .mobile-search-results{
+    padding: 0 10%;
+  }
 }
