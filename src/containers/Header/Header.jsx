@@ -46,6 +46,7 @@ const Header = () => {
 
     setTimeout(() => {
       setNavigateToResults(false);
+      window.location.reload();
     }, 10);
   };
 

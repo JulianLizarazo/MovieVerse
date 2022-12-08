@@ -46,7 +46,7 @@ const SearchMovieMobile = ({
       {keyword !== "" && (
         <section className="mobile-search-results" id="search-menu" ref={menuRef}>
           {moviesSearched.map((movie) => (
-            <Link to={`/movies/${movie?.id}`}>
+            <Link to={`/movies/${movie?.id}`} onClick={() => setTimeout(() => {window.location.reload()}, 1)}>
               <article className={`movies-searched__movie movie-searched-${theme}`} onClick={hiddenMenu}>
               <img
                   src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
