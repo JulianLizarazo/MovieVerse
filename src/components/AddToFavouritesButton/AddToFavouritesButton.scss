@@ -1,0 +1,23 @@
+@use "../../styles/colors.scss";
+@use "../../styles/variables.scss";
+
+.favourite{
+    margin-inline-start: 5px;
+    margin-block-start: 5px;
+    width: 40px;
+    height: 40px;
+    color: rgb(41, 104, 71);
+    cursor: pointer;
+}
+
+.trending-desktop{
+    width: 200px;
+      height: 50px;
+      font-family: variables.$font-family;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: colors.$dark-mode-third;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+}

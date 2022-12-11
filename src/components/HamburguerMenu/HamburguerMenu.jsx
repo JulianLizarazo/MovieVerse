@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
 import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 
@@ -19,6 +20,9 @@ const HamburguerMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const { theme } = useContext(ColorModeContext);
 
+  const { movieList } = useContext(FavouriteMovieListContext);
+
+
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
@@ -29,12 +33,20 @@ const HamburguerMenu = () => {
         <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
       </div>
       <motion.div
-        className="menu-container"
+        className={`menu-container ${theme}`}
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={variants}
         transition={transtition}
-      ></motion.div>
+      >
+        <h3>My Favourite Movies</h3>
+
+        <section>
+          {movieList.favouriteMoviesList.map(favouriteMovie => (
+            <p>{favouriteMovie.id}</p>
+          ))}
+        </section>
+      </motion.div>
     </nav>
   );
 };

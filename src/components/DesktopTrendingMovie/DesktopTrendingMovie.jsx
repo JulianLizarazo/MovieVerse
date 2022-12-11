@@ -1,5 +1,6 @@
 import "./DesktopTrendingMovie.scss";
 import { AiFillStar } from "react-icons/ai";
+import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesButton";
 
 const DesktopTrendingMovie = ({ id, title, overview, voteAverage, poster, alt }) => {
   return (
@@ -22,7 +23,8 @@ const DesktopTrendingMovie = ({ id, title, overview, voteAverage, poster, alt })
             <span>{voteAverage} / 10</span>
         </div>
 
-        <button className="desktop-trending-movie__popularity-add-favourite">Add to Favourites</button>
+        
+        <AddToFavouritesButton whereIsTheButton={"trending-desktop"} movie={id}/>
         <button className="desktop-trending-movie__popularity-details">Details</button>
       </aside>
     </article>
