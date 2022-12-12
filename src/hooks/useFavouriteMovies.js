@@ -16,20 +16,22 @@ export const useFavouriteMovies = () => {
         
     }, [movieList]);
 
-    const addToFavouriteMoviesList = (idMovie) => {
+    const addToFavouriteMoviesList = (idMovie, posterMovie, posterAltMovie, titleMovie ) => {
         const movieInList = findMovie(idMovie);
 
         if(movieInList === -1){
             setMovieList({
                 ...movieList,
-                favouriteMoviesList: [...movieList.favouriteMoviesList, { id: idMovie }]
+                favouriteMoviesList: [...movieList.favouriteMoviesList, { id: idMovie, title: titleMovie, poster: posterMovie, alt: posterAltMovie }]
             });
-        }    
+        } else {
+            alert("la pelicula ya está agregada xd");
+        }  
     }
 
     const findMovie = (movie) => {
         const isInList = movieList.favouriteMoviesList.findIndex((movieId) => movieId === movie);
-
+        console.log(isInList)
         if(isInList > -1){
             return isInList;
         } else {

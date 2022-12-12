@@ -24,7 +24,7 @@ const DesktopTrendingMovie = ({ id, title, overview, voteAverage, poster, alt })
         </div>
 
         
-        <AddToFavouritesButton whereIsTheButton={"trending-desktop"} movie={id}/>
+        <AddToFavouritesButton whereIsTheButton={"trending-desktop"} movieId={id} movieTitle={title} moviePoster={poster} moviePosterAlt={alt}/>
         <button className="desktop-trending-movie__popularity-details">Details</button>
       </aside>
     </article>

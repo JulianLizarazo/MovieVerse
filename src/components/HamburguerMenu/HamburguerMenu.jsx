@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
+import { Link } from "react-router-dom";
+import { BiTrashAlt } from "react-icons/bi";
 import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 
@@ -22,6 +24,9 @@ const HamburguerMenu = () => {
 
   const { movieList } = useContext(FavouriteMovieListContext);
 
+  const xd = () => {
+    console.log("eliminando")
+  }
 
   const toggleMenu = () => {
     setOpen(!isOpen);
@@ -41,10 +46,39 @@ const HamburguerMenu = () => {
       >
         <h3>My Favourite Movies</h3>
 
-        <section>
-          {movieList.favouriteMoviesList.map(favouriteMovie => (
-            <p>{favouriteMovie.id}</p>
+        <section className={`favourite-movies-section ${theme}`}>
+          {movieList.favouriteMoviesList.map((favouriteMovie) => (
+            <>
+            <Link
+              to={`/movies/${favouriteMovie.id}`}
+              className="favourite-movies-section__movie text"
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
+                alt={favouriteMovie.alt}
+                loading="lazy"
+                width="80px"
+                height="110px"
+              />
+              <h4>{favouriteMovie.title}</h4>
+              
+            </Link>
+            <motion.div
+                className="favourite-movies-section__movie-remove"
+                whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
+                onClick={xd}
+              >
+                <BiTrashAlt />
+              </motion.div>
+            </>
+            
           ))}
+        </section>
+        <section>
+          <span>
+          ver todas las peliculas
+
+          </span>
         </section>
       </motion.div>
     </nav>
