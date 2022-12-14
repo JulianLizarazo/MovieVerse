@@ -22,11 +22,13 @@ const HamburguerMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const { theme } = useContext(ColorModeContext);
 
-  const { movieList } = useContext(FavouriteMovieListContext);
-
-  const xd = () => {
-    console.log("eliminando")
-  }
+  const { movieList, removeMovieFromFavourites } = useContext(
+    FavouriteMovieListContext
+  );
+  
+  const handleRemoveMovieFromList = (idMovie) => () => {
+    removeMovieFromFavourites(idMovie);
+  };
 
   const toggleMenu = () => {
     setOpen(!isOpen);
@@ -49,37 +51,34 @@ const HamburguerMenu = () => {
         <section className={`favourite-movies-section ${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
             <>
-            <Link
-              to={`/movies/${favouriteMovie.id}`}
-              className="favourite-movies-section__movie text"
-            >
-              <img
-                src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
-                alt={favouriteMovie.alt}
-                loading="lazy"
-                width="80px"
-                height="110px"
-              />
-              <h4>{favouriteMovie.title}</h4>
-              
-            </Link>
-            <motion.div
+              <Link
+                to={`/movies/${favouriteMovie.id}`}
+                className="favourite-movies-section__movie text"
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
+                  alt={favouriteMovie.alt}
+                  loading="lazy"
+                  width="80px"
+                  height="110px"
+                />
+                <h4>{favouriteMovie.title}</h4>
+              </Link>
+              <motion.div
                 className="favourite-movies-section__movie-remove"
                 whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
-                onClick={xd}
+                onClick={handleRemoveMovieFromList(favouriteMovie.id)}
               >
                 <BiTrashAlt />
               </motion.div>
             </>
-            
           ))}
         </section>
-        <section>
-          <span>
-          ver todas las peliculas
-
-          </span>
-        </section>
+        {movieList.favouriteMoviesList.length > 20 && (
+          <section>
+            <span>ver todas las peliculas</span>
+          </section>
+        )}
       </motion.div>
     </nav>
   );
