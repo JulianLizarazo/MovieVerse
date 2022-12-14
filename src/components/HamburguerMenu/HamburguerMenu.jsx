@@ -39,7 +39,7 @@ const HamburguerMenu = () => {
       <div className="icon">
         <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
       </div>
-      <motion.div
+      <motion.aside
         className={`menu-container ${theme}`}
         initial={false}
         animate={isOpen ? "open" : "closed"}
@@ -79,7 +79,7 @@ const HamburguerMenu = () => {
             <span>ver todas las peliculas</span>
           </section>
         )}
-      </motion.div>
+      </motion.aside>
     </nav>
   );
 };

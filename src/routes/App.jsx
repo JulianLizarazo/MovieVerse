@@ -9,6 +9,7 @@ import { Movie } from "../pages/Movie/Movie";
 import { MovieSearchResults } from "../pages/MovieSearchResults/MovieSearchResults";
 import { useFavouriteMovies } from "../hooks/useFavouriteMovies";
 import { FavouriteMovieListContext } from "../context/FavouriteMovieListContext";
+import { FavouriteMovies } from "../pages/FavouriteMovies/FavouriteMovies";
 
 function App() {
   const themeInitialState = useChangeColorMode();
@@ -30,6 +31,7 @@ function App() {
                   path="/search/:id"
                   element={<MovieSearchResults />}
                 />
+                <Route exact path="/favourites" element={<FavouriteMovies/>} />
               </Routes>
             </Layout>
           </BrowserRouter>

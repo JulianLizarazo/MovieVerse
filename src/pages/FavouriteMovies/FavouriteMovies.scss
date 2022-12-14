@@ -1,0 +1,66 @@
+
+
+.favourite-movies{
+    padding-block-start: 80px;
+    padding-block-end: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__list{
+
+        margin-block-start: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 60px;    
+        text-align: center;
+
+        &-movie{
+            width: 200px;
+            height: 400px;
+
+            & h4{
+                width: 100%;
+                height: 40px;
+                padding-block-start: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &--options{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin-block-start: 30px;
+
+                & div{
+                    width: 45px;
+                    height: 45px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+
+                    & svg{
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+                
+                
+            }
+            
+        }
+        
+    }
+}
+
+.go-to-movie-option{
+    background-color: green;
+}
+
+.delete-movie-option{
+    background-color: red;
+}
