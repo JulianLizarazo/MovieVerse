@@ -7,6 +7,12 @@ import { BiTrashAlt } from "react-icons/bi";
 import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 
+const animationToRemove = {
+  eliminate: {
+    x: "150%",
+  }
+}
+
 const variants = {
   open: {
     transform: "translateX(0%)",
@@ -25,9 +31,16 @@ const HamburguerMenu = () => {
   const { movieList, removeMovieFromFavourites } = useContext(
     FavouriteMovieListContext
   );
-  
+
+  const { animation, setAnimation } = useState(false);
+
   const handleRemoveMovieFromList = (idMovie) => () => {
-    removeMovieFromFavourites(idMovie);
+    setTimeout(() => {
+      removeMovieFromFavourites(idMovie);
+      setAnimation(false);
+    }, 1500);
+
+    setAnimation(true);
   };
 
   const toggleMenu = () => {
@@ -50,7 +63,7 @@ const HamburguerMenu = () => {
 
         <section className={`favourite-movies-section ${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
-            <>
+            <motion.div animate={animation && 'eliminate'} variants={animationToRemove}>
               <Link
                 to={`/movies/${favouriteMovie.id}`}
                 className="favourite-movies-section__movie text"
@@ -71,7 +84,7 @@ const HamburguerMenu = () => {
               >
                 <BiTrashAlt />
               </motion.div>
-            </>
+            </motion.div>
           ))}
         </section>
         {movieList.favouriteMoviesList.length > 20 && (

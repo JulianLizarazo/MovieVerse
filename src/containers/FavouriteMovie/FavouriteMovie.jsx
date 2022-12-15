@@ -9,12 +9,19 @@ import { useContext } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
 import { RemoveConfirmedModal } from "../../components/RemoveConfirmedModal/RemoveConfirmedModal";
 
+const removeAnimation = {
+  eliminate: {
+    opacity: 0,
+  },
+};
+
 const FavouriteMovie = ({
   movieId,
   movieTitle,
   moviePoster,
   moviePosterAlt,
 }) => {
+  const [animationToRemove, setAnimationToRemove] = useState(false);
   const [confirmationToRemove, setConfirmationToRemove] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const { removeMovieFromFavourites } = useContext(FavouriteMovieListContext);
@@ -24,19 +31,26 @@ const FavouriteMovie = ({
       if (confirmation) {
         setTimeout(() => {
           removeMovieFromFavourites(idMovie);
-        }, 2000);
+        }, 1000);
 
+        setAnimationToRemove(true);
         setConfirmationToRemove(true);
       }
       setShowConfirmationModal(false);
       setTimeout(() => {
+        setAnimationToRemove(false);
         setConfirmationToRemove(false);
-      }, 3000);
+      }, 2500);
     };
 
   return (
     <>
-      <article className="favourite-movies__list-movie">
+      <motion.article
+        className="favourite-movies__list-movie"
+        animate={animationToRemove && "eliminate"}
+        variants={removeAnimation}
+        transition={{ duration: 1 }}
+      >
         <img
           src={`https://image.tmdb.org/t/p/original${moviePoster}`}
           alt={moviePosterAlt}
@@ -66,9 +80,11 @@ const FavouriteMovie = ({
             movieId={movieId}
           />
         )}
-      </article>
+      </motion.article>
       <AnimatePresence>
-        {confirmationToRemove && <RemoveConfirmedModal />}
+        {confirmationToRemove && (
+          <RemoveConfirmedModal text={"Eliminado exitosamente"} />
+        )}
       </AnimatePresence>
     </>
   );

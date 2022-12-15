@@ -21,6 +21,7 @@ const FavouriteMovies = () => {
               movieTitle={favouriteMovie.title}
               moviePoster={favouriteMovie.poster}
               moviePosterAlt={favouriteMovie.alt}
+              key={favouriteMovie.id}
             />
           ))}
         </section>

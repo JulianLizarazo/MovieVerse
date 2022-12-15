@@ -15,7 +15,7 @@ const variants = {
       },
 };
 
-const RemoveConfirmedModal = () => {
+const RemoveConfirmedModal = ({text}) => {
   return (
     <motion.div
       className="removed-modal"
@@ -25,7 +25,7 @@ const RemoveConfirmedModal = () => {
       animate="visible"
       exit="exit"
     >
-      Eliminado exitosamente
+      {text}
     </motion.div>
   );
 };
