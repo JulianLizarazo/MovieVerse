@@ -1,0 +1,19 @@
+.removed-modal {
+  position: fixed;
+
+  right: 0;
+  height: 50px;
+  width: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (min-width: 399px) {
+  .removed-modal {
+    width: 300px;
+  }
+}

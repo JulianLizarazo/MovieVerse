@@ -1,4 +1,4 @@
-import "./RemoveConfirmedModal.scss";
+import "./NoticeSlideModal.scss";
 import { motion } from "framer-motion";
 
 const variants = {
@@ -15,7 +15,7 @@ const variants = {
       },
 };
 
-const RemoveConfirmedModal = ({text}) => {
+const NoticeSlideModal = ({text, top, textColor, backgroundColor, borderColor}) => {
   return (
     <motion.div
       className="removed-modal"
@@ -24,10 +24,18 @@ const RemoveConfirmedModal = ({text}) => {
       initial="hidden"
       animate="visible"
       exit="exit"
+      style={
+        {
+          top: top,
+          color: textColor,
+          backgroundColor: backgroundColor,
+          border: `1px solid ${borderColor}`,
+        }
+      }
     >
       {text}
     </motion.div>
   );
 };
 
-export { RemoveConfirmedModal };
+export { NoticeSlideModal };

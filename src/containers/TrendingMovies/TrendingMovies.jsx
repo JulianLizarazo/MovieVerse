@@ -22,6 +22,7 @@ export default function TrendingMovies() {
               alt={trendingMovie.alt}
               poster={trendingMovie.poster}
               voteAverage={trendingMovie.voteAverage}
+              title={trendingMovie.title}
             />
           ))}
         </section>

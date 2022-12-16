@@ -7,7 +7,7 @@ import { ConfirmationToRemoveModal } from "../../components/ConfirmationToRemove
 import { useState } from "react";
 import { useContext } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
-import { RemoveConfirmedModal } from "../../components/RemoveConfirmedModal/RemoveConfirmedModal";
+import { NoticeSlideModal } from "../../components/NoticeSlideModal/NoticeSlideModal";
 
 const removeAnimation = {
   eliminate: {
@@ -83,7 +83,7 @@ const FavouriteMovie = ({
       </motion.article>
       <AnimatePresence>
         {confirmationToRemove && (
-          <RemoveConfirmedModal text={"Eliminado exitosamente"} />
+          <NoticeSlideModal text={"Eliminado exitosamente"} top={"80px"} />
         )}
       </AnimatePresence>
     </>

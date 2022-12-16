@@ -1,5 +1,6 @@
 import "./MovePresentation.scss";
 import { Link } from "react-router-dom";
+import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesButton";
 
 export default function MoviePresentation({ poster_path, title, genres, backdrop_path }){
   const styles = {
@@ -27,6 +28,7 @@ export default function MoviePresentation({ poster_path, title, genres, backdrop
             ))}
           </div>
         </div>
+
       </section>
     </section>
   );
