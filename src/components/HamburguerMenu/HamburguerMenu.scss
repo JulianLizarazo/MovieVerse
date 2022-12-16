@@ -38,9 +38,7 @@
     width: 100%;
     overflow-y: scroll;
     margin-block-start: 50px;
-    display: grid;
-    grid-template-columns: 80% 20%;
-    
+   
     
     &__movie{
         width: 100%;
@@ -76,4 +74,10 @@
         }
         
     }
+}
+
+.animation-div{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    
 }

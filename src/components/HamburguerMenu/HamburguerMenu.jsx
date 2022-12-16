@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
@@ -8,10 +8,8 @@ import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 
 const animationToRemove = {
-  eliminate: {
-    x: "150%",
-  }
-}
+  x: "100%"
+};
 
 const variants = {
   open: {
@@ -32,21 +30,23 @@ const HamburguerMenu = () => {
     FavouriteMovieListContext
   );
 
-  const { animation, setAnimation } = useState(false);
+  const [animation, setAnimation ] = useState(false);
 
   const handleRemoveMovieFromList = (idMovie) => () => {
     setTimeout(() => {
       removeMovieFromFavourites(idMovie);
-      setAnimation(false);
-    }, 1500);
-
+    }, 250);
+    
     setAnimation(true);
+   
+    
   };
 
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
 
+  
   return (
     <nav className="container">
       <div className="icon">
@@ -63,28 +63,34 @@ const HamburguerMenu = () => {
 
         <section className={`favourite-movies-section ${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
-            <motion.div animate={animation && 'eliminate'} variants={animationToRemove}>
-              <Link
-                to={`/movies/${favouriteMovie.id}`}
-                className="favourite-movies-section__movie text"
+            
+              <motion.article
+                className="animation-div"
+                animate={animation && animationToRemove}
+                
               >
-                <img
-                  src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
-                  alt={favouriteMovie.alt}
-                  loading="lazy"
-                  width="80px"
-                  height="110px"
-                />
-                <h4>{favouriteMovie.title}</h4>
-              </Link>
-              <motion.div
-                className="favourite-movies-section__movie-remove"
-                whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
-                onClick={handleRemoveMovieFromList(favouriteMovie.id)}
-              >
-                <BiTrashAlt />
-              </motion.div>
-            </motion.div>
+                <Link
+                  to={`/movies/${favouriteMovie.id}`}
+                  className="favourite-movies-section__movie text"
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
+                    alt={favouriteMovie.alt}
+                    loading="lazy"
+                    width="80px"
+                    height="110px"
+                  />
+                  <h4>{favouriteMovie.title}</h4>
+                </Link>
+                <motion.div
+                  className="favourite-movies-section__movie-remove"
+                  whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
+                  onClick={handleRemoveMovieFromList(favouriteMovie.id)}
+                >
+                  <BiTrashAlt />
+                </motion.div>
+              </motion.article>
+            
           ))}
         </section>
         {movieList.favouriteMoviesList.length > 20 && (
@@ -96,5 +102,7 @@ const HamburguerMenu = () => {
     </nav>
   );
 };
+
+
 
 export { HamburguerMenu };
