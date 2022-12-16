@@ -1,15 +1,10 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
-import { Link } from "react-router-dom";
-import { BiTrashAlt } from "react-icons/bi";
 import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
-
-const animationToRemove = {
-  x: "100%"
-};
+import { FavMovieQuickList } from "../FavMovieQuickList/FavMovieQuickList";
+import { motion } from "framer-motion";
 
 const variants = {
   open: {
@@ -26,27 +21,12 @@ const HamburguerMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const { theme } = useContext(ColorModeContext);
 
-  const { movieList, removeMovieFromFavourites } = useContext(
-    FavouriteMovieListContext
-  );
-
-  const [animation, setAnimation ] = useState(false);
-
-  const handleRemoveMovieFromList = (idMovie) => () => {
-    setTimeout(() => {
-      removeMovieFromFavourites(idMovie);
-    }, 250);
-    
-    setAnimation(true);
-   
-    
-  };
+  const { movieList } = useContext(FavouriteMovieListContext);
 
   const toggleMenu = () => {
     setOpen(!isOpen);
   };
 
-  
   return (
     <nav className="container">
       <div className="icon">
@@ -63,37 +43,16 @@ const HamburguerMenu = () => {
 
         <section className={`favourite-movies-section ${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
-            
-              <motion.article
-                className="animation-div"
-                animate={animation && animationToRemove}
-                
-              >
-                <Link
-                  to={`/movies/${favouriteMovie.id}`}
-                  className="favourite-movies-section__movie text"
-                >
-                  <img
-                    src={`https://image.tmdb.org/t/p/w154${favouriteMovie.poster}`}
-                    alt={favouriteMovie.alt}
-                    loading="lazy"
-                    width="80px"
-                    height="110px"
-                  />
-                  <h4>{favouriteMovie.title}</h4>
-                </Link>
-                <motion.div
-                  className="favourite-movies-section__movie-remove"
-                  whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
-                  onClick={handleRemoveMovieFromList(favouriteMovie.id)}
-                >
-                  <BiTrashAlt />
-                </motion.div>
-              </motion.article>
-            
+            <FavMovieQuickList
+              idMovie={favouriteMovie.id}
+              posterAltMovie={favouriteMovie.alt}
+              posterMovie={favouriteMovie.poster}
+              titleMovie={favouriteMovie.title}
+              key={favouriteMovie.title}
+            />
           ))}
         </section>
-        {movieList.favouriteMoviesList.length > 20 && (
+        {movieList.favouriteMoviesList.length > 10 && (
           <section>
             <span>ver todas las peliculas</span>
           </section>
@@ -102,7 +61,5 @@ const HamburguerMenu = () => {
     </nav>
   );
 };
-
-
 
 export { HamburguerMenu };

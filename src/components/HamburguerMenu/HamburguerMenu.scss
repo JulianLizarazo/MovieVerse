@@ -1,83 +1,35 @@
-
-
-.container{
-    display: flex;
-    
-
+.container {
+  display: flex;
 }
 
-.icon{
-    z-index: 99;
-    transition: all 250ms ease-in-out;
-    cursor: pointer;
+.icon {
+  z-index: 99;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
 }
 
-.menu-container{
-    width: 100%;
-    max-width: 400px;
-    height: 90%;
-    box-shadow: -2px 0 2px rgba(15,15,15,0.3);
-    z-index: -3;
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translateX(4em);
-    user-select: none;
-    padding: 1em 2.5em;
-    margin-block-start: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0 10px 10px;
-     
-    
+.menu-container {
+  width: 100%;
+  max-width: 400px;
+  height: 90%;
+  box-shadow: -2px 0 2px rgba(15, 15, 15, 0.3);
+  z-index: -3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(4em);
+  user-select: none;
+  padding: 1em 2.5em;
+  margin-block-start: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 10px 10px;
 }
 
-
-.favourite-movies-section{
-    width: 100%;
-    overflow-y: scroll;
-    margin-block-start: 50px;
-   
-    
-    &__movie{
-        width: 100%;
-        display: grid;
-        grid-template-columns: 27% 73%;
-        align-items: center;
-        margin-block-end: 15px;
-        text-decoration: none;
-       
-        &:hover{
-            background-color: gray;
-        }
-
-        & h4{
-            margin-inline-start: 10px;
-        }
-
-
-        &-remove{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 2px;
-            margin-block-end: 15px;
-            cursor: pointer;
-            
-        
-            & svg{
-                width: 30px;
-                height: 30px;
-            }
-
-        }
-        
-    }
-}
-
-.animation-div{
-    display: grid;
-    grid-template-columns: 80% 20%;
-    
+.favourite-movies-section {
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-block-start: 50px;
 }
