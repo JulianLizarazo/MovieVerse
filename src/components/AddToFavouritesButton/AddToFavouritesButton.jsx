@@ -1,9 +1,14 @@
 import { useContext } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
-import { motion } from "framer-motion";
 
+import { useState } from "react";
+import { useEffect } from "react";
+import { MoviePageDesktopButton } from "./Subcomponents/MoviePageDesktopButton";
 import "./AddToFavouritesButton.scss";
+import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConfirmation";
+import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
+import { MoviePageMobileButton } from "./Subcomponents/MoviePageMobileButton";
 
 const AddToFavouritesButton = ({
   movieId,
@@ -15,14 +20,17 @@ const AddToFavouritesButton = ({
 }) => {
   const { addToFavouriteMoviesList } = useContext(FavouriteMovieListContext);
   const handleAddToFavouriteList =
-    (idMovie, posterMovie, posterAltMovie, movieTitle) => () => {
-      addToFavouriteMoviesList(
-        idMovie,
-        posterMovie,
-        posterAltMovie,
-        movieTitle
-      );
-      confirmationState(true);
+    (idMovie, posterMovie, posterAltMovie, movieTitle, isRepeated = false) =>
+    () => {
+      if (!isRepeated) {
+        addToFavouriteMoviesList(
+          idMovie,
+          posterMovie,
+          posterAltMovie,
+          movieTitle
+        );
+        confirmationState(true);
+      }
     };
 
   switch (whereIsTheButton) {
@@ -49,6 +57,16 @@ const AddToFavouritesButton = ({
     case "movie-page-desktop":
       return (
         <MoviePageDesktopButton
+          handleAddToFavouriteList={handleAddToFavouriteList}
+          movieId={movieId}
+          moviePoster={moviePoster}
+          moviePosterAlt={moviePosterAlt}
+          movieTitle={movieTitle}
+        />
+      );
+    case "movie-page-mobile":
+      return (
+        <MoviePageMobileButton
           handleAddToFavouriteList={handleAddToFavouriteList}
           movieId={movieId}
           moviePoster={moviePoster}
@@ -101,24 +119,6 @@ const TrendingMobileButton = ({
   );
 };
 
-const MoviePageDesktopButton = ({
-  handleAddToFavouriteList,
-  movieId,
-  moviePoster,
-  moviePosterAlt,
-  movieTitle,
-}) => {
-  return (
-    <AiOutlineHeart
-      className="movie-page-desktop-button"
-      onClick={handleAddToFavouriteList(
-        movieId,
-        moviePoster,
-        moviePosterAlt,
-        movieTitle
-      )}
-    />
-  );
-};
+
 
 export { AddToFavouritesButton };

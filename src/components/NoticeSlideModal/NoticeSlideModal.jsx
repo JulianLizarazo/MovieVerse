@@ -26,7 +26,7 @@ const NoticeSlideModal = ({text, top, textColor, backgroundColor, borderColor}) 
       exit="exit"
       style={
         {
-          top: top,
+          top: top === "mobile" ? "600px" : "80px",
           color: textColor,
           backgroundColor: backgroundColor,
           border: `1px solid ${borderColor}`,

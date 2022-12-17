@@ -1,6 +1,10 @@
+import { AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConfirmation";
+import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesButton";
+import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import "./MoviePresentationMobile.scss";
 
 export default function MoviePresentationMobile({
@@ -8,6 +12,7 @@ export default function MoviePresentationMobile({
   title,
   genres,
   backdrop_path,
+  id,
 }) {
   const styles = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w780${backdrop_path})`,
@@ -17,6 +22,8 @@ export default function MoviePresentationMobile({
   };
 
   const { theme } = useContext(ColorModeContext);
+  const { confirmationToAdded, setConfirmationToAdded } =
+    useAddedAnimationConfirmation();
 
   return (
     <>
@@ -27,7 +34,17 @@ export default function MoviePresentationMobile({
         />
       </section>
       <section className={`movie-mobile-title-and-genres ${theme}`}>
-        <h2 className="movie-mobile-title-and-genres__title text">{title}</h2>
+        <div className="title-and-button-mobile-container">
+          <h2 className="movie-mobile-title-and-genres__title text">{title}</h2>
+          <AddToFavouritesButton
+            movieId={id}
+            moviePoster={poster_path}
+            moviePosterAlt={`Pelicula ${title}`}
+            movieTitle={title}
+            whereIsTheButton={"movie-page-mobile"}
+            confirmationState={setConfirmationToAdded}
+          />
+        </div>
         <div className="movie-mobile-title-and-genres__genres text">
           {genres.map((genre) => (
             <Link to={`/${genre.id}`} className="link">
@@ -36,6 +53,11 @@ export default function MoviePresentationMobile({
           ))}
         </div>
       </section>
+      <AnimatePresence>
+        {confirmationToAdded && (
+          <NoticeSlideModal text="Agregado exitosamente" top="mobile" />
+        )}
+      </AnimatePresence>
     </>
   );
 }

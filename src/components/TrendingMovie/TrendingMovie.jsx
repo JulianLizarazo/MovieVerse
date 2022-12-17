@@ -27,7 +27,7 @@ const TrendingMovie = ({ id, alt, poster, voteAverage, title }) => {
         <span>{voteAverage} / 10</span>
       </div>
 
-      {confirmationToAdded && <NoticeSlideModal text={"Pelicula agregada exitosamente"} top={"600px"}/>}
+      {confirmationToAdded && <NoticeSlideModal text={"Pelicula agregada exitosamente"} top={"mobile"}/>}
     </article>
   );
 };

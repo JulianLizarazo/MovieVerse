@@ -64,9 +64,17 @@ export const useFavouriteMovies = () => {
 
   }
 
+  const movieAddedVerificate = (idMovie) => {
+    const isTheMovieInList = findMovie(idMovie);
+
+    return isTheMovieInList !== -1 ? true : false;
+  }
+
+ 
   return {
     movieList,
     addToFavouriteMoviesList,
     removeMovieFromFavourites,
+    movieAddedVerificate,
   };
 };

@@ -83,7 +83,7 @@ const FavouriteMovie = ({
       </motion.article>
       <AnimatePresence>
         {confirmationToRemove && (
-          <NoticeSlideModal text={"Eliminado exitosamente"} top={"80px"} />
+          <NoticeSlideModal text={"Eliminado exitosamente"} top={"desktop"} />
         )}
       </AnimatePresence>
     </>

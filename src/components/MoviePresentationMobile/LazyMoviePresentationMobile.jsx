@@ -24,6 +24,7 @@ const LazyMoviePresentationMobile = ({
               title={movie.title}
               genres={movie.genres}
               backdrop_path={movie.backdrop_path}
+              id={movie.id}
             />
             <MovieOverviewMobile overview={movie.overview} />
           </>

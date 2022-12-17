@@ -59,7 +59,7 @@ const DesktopTrendingMovie = ({
         {confirmationToAdded && (
           <NoticeSlideModal
             text={"Pelicula agregada exitosamente"}
-            top={"600px"}
+            top={"desktop"}
           />
         )}
       </AnimatePresence>
