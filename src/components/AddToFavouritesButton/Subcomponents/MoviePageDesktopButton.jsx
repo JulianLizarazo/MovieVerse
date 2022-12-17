@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FavouriteMovieListContext } from "../../../context/FavouriteMovieListContext";
@@ -58,9 +59,11 @@ const MoviePageDesktopButton = ({
           )}
         />
       )}
-      {confirmationToAdded && (
-        <NoticeSlideModal text="Eliminado exitosamente" top="desktop" />
-      )}
+      <AnimatePresence>
+        {confirmationToAdded && (
+          <NoticeSlideModal text="Eliminado exitosamente" top="desktop" />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

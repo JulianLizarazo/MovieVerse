@@ -5,7 +5,7 @@ import { FavouriteMovieListContext } from "../../../context/FavouriteMovieListCo
 import { useAddedAnimationConfirmation } from "../../../hooks/useAddedAnimationConfirmation";
 import { NoticeSlideModal } from "../../NoticeSlideModal/NoticeSlideModal";
 
-const MoviePageMobileButton = ({
+const TrendingMobileButton = ({
   handleAddToFavouriteList,
   movieId,
   moviePoster,
@@ -41,7 +41,7 @@ const MoviePageMobileButton = ({
     <div onClick={() => verificateToEliminateMovie()}>
       {!isAddedNow ? (
         <AiOutlineHeart
-          className="movie-page-mobile-button"
+          className="favourite"
           onClick={handleAddToFavouriteList(
             movieId,
             moviePoster,
@@ -51,7 +51,7 @@ const MoviePageMobileButton = ({
           )}
         />
       ) : (
-        <AiFillHeart className="movie-page-mobile-button" />
+        <AiFillHeart className="favourite" />
       )}
       <AnimatePresence>
         {confirmationToAdded && (
@@ -62,4 +62,4 @@ const MoviePageMobileButton = ({
   );
 };
 
-export { MoviePageMobileButton };
+export { TrendingMobileButton };

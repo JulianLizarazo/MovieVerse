@@ -1,14 +1,10 @@
 import { useContext } from "react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
-
-import { useState } from "react";
-import { useEffect } from "react";
 import { MoviePageDesktopButton } from "./Subcomponents/MoviePageDesktopButton";
 import "./AddToFavouritesButton.scss";
-import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConfirmation";
-import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import { MoviePageMobileButton } from "./Subcomponents/MoviePageMobileButton";
+import { TrendingDesktopButton } from "./Subcomponents/TrendingDesktopButton";
+import { TrendingMobileButton } from "./Subcomponents/TrendingMobileButton";
 
 const AddToFavouritesButton = ({
   movieId,
@@ -76,49 +72,5 @@ const AddToFavouritesButton = ({
       );
   }
 };
-
-const TrendingDesktopButton = ({
-  handleAddToFavouriteList,
-  movieId,
-  moviePoster,
-  moviePosterAlt,
-  movieTitle,
-}) => {
-  return (
-    <button
-      className="trending-desktop"
-      onClick={handleAddToFavouriteList(
-        movieId,
-        moviePoster,
-        moviePosterAlt,
-        movieTitle
-      )}
-    >
-      Boton de tendencia pa
-    </button>
-  );
-};
-
-const TrendingMobileButton = ({
-  handleAddToFavouriteList,
-  movieId,
-  moviePoster,
-  moviePosterAlt,
-  movieTitle,
-}) => {
-  return (
-    <AiOutlineHeart
-      className="favourite"
-      onClick={handleAddToFavouriteList(
-        movieId,
-        moviePoster,
-        moviePosterAlt,
-        movieTitle
-      )}
-    />
-  );
-};
-
-
 
 export { AddToFavouritesButton };
