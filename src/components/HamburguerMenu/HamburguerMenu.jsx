@@ -5,6 +5,7 @@ import "./HamburguerMenu.scss";
 import { MenuToggle } from "./MenuToggle";
 import { FavMovieQuickList } from "../FavMovieQuickList/FavMovieQuickList";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const variants = {
   open: {
@@ -54,7 +55,7 @@ const HamburguerMenu = () => {
         </section>
         {movieList.favouriteMoviesList.length > 10 && (
           <section>
-            <span>ver todas las peliculas</span>
+            <Link to="/favourites">Ver todas las peliculas</Link>
           </section>
         )}
       </motion.aside>
