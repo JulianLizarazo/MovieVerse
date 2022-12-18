@@ -54,7 +54,7 @@ const HamburguerMenu = () => {
           ))}
         </section>
         {movieList.favouriteMoviesList.length > 10 && (
-          <section>
+          <section className="favourite-page-link" >
             <Link to="/favourites">Ver todas las peliculas</Link>
           </section>
         )}

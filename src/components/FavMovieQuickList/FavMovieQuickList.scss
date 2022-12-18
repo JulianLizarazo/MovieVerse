@@ -35,3 +35,11 @@
   display: grid;
   grid-template-columns: 80% 20%;
 }
+
+@media screen and (max-width: 374px) {
+  .favourite-movies-section {
+    & h4 {
+      margin-inline-start: 20px;
+    }
+  }
+}
