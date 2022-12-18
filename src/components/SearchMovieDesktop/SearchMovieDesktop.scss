@@ -50,12 +50,15 @@
       background-color: colors.$light-mode-primary;
       border: 2px solid colors.$light-mode-secondary;
       color: colors.$light-mode-text;
+      &::placeholder{
+        color: colors.$light-mode-text;
+      }
   }
   .input-dark{
-      background-color: colors.$dark-mode-secondary;
-      border: 2px solid colors.$dark-mode-primary;
+      background-color: colors.$dark-mode-primary;
+      border: 2px solid colors.$dark-mode-secondary;
       &::placeholder{
-          color: colors.$dark-mode-third;
+          color: colors.$dark-mode-text;
       }
       caret-color: colors.$dark-mode-third;
       color: colors.$dark-mode-text;

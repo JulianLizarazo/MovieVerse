@@ -31,12 +31,12 @@
 
 .light-button{
    
-    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-light-mode, colors.$light-mode-third);
+    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-light-mode, colors.$light-mode-text);
 
 }
 
 .dark-button{
-    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-dark-mode, colors.$dark-mode-third);  
+    @include mixins.themeGeneratorCustomButtom(colors.$button-theme-dark-mode, colors.$dark-mode-text);  
 }
 
 .text-button{

@@ -11,7 +11,7 @@
   top: 100px;
   background-color: colors.$light-mode-primary;
 
-  &__item{
+  &__item {
     display: flex;
     width: 100%;
     height: 100px;
@@ -19,7 +19,7 @@
   }
 }
 
-.form-submit-mobile{
+.form-submit-mobile {
   position: absolute;
   width: 100%;
   height: 60px;
@@ -28,8 +28,37 @@
   margin-block-start: 60px;
 }
 
-@media screen and (min-width: 600px){
-  .mobile-search-results{
+@media screen and (min-width: 600px) {
+  .mobile-search-results {
     padding: 0 10%;
   }
+}
+
+.input-mobile-light {
+  background-color: colors.$light-mode-primary;
+  border: 2px solid colors.$light-mode-secondary;
+  color: colors.$light-mode-text;
+  &::placeholder {
+    color: colors.$light-mode-text;
+  }
+}
+
+.input-mobile-dark {
+  background-color: colors.$dark-mode-primary;
+  border: 2px solid colors.$dark-mode-secondary;
+  &::placeholder {
+    color: colors.$dark-mode-text;
+  }
+  caret-color: colors.$dark-mode-third;
+  color: colors.$dark-mode-text;
+}
+
+.search-button-mobile-light{
+  background-color: colors.$button-theme-light-mode;
+  color: colors.$light-mode-text;
+}
+
+.search-button-mobile-dark{
+  background-color: colors.$button-theme-dark-mode;
+  color: colors.$dark-mode-text;
 }

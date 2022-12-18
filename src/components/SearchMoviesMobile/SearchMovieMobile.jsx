@@ -34,11 +34,11 @@ const SearchMovieMobile = ({
       <form onSubmit={handleSubmit} className="form-submit-mobile">
         <input
           placeholder="Pelicula o show de TV"
-          className="search-section__input"
+          className={`search-section__input input-mobile-${theme}`}
           onChange={handleChange}
           id="input-mobile"
         />
-        <button className="search-section__button" onClick={handleSubmit}>
+        <button className={`search-section__button search-button-mobile-${theme} `} onClick={handleSubmit}>
           Buscar
         </button>
       </form>

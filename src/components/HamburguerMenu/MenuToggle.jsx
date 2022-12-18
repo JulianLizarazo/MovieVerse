@@ -1,5 +1,7 @@
 import "./MenuToggle.scss";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { ColorModeContext } from "../../context/ColorModeContext";
 
 
 const transition = { duration: 0.3 };
@@ -17,9 +19,10 @@ const Path = (props) => (
 
 const MenuToggle = ({ toggle, isOpen }) => {
   
+  const { theme } = useContext(ColorModeContext);
 
   return (
-    <div onClick={toggle} className="background">
+    <div onClick={toggle} className={`background hamburguer-menu-${theme} `}>
       
         <svg width="23" height="23" viewBox="0 0 23 23">
           <Path

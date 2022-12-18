@@ -1,20 +1,28 @@
+@use "../../styles/colors.scss";
 
-button{
-    z-index: 99;
-    
+button {
+  z-index: 99;
 }
 
-.background{
-    width: 30px;
-    height: 30px;
-    background: gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
+.background {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
 
-    & svg{
-        width: 60%;
-        height: 80%;
-    }
+  & svg {
+    width: 60%;
+    height: 80%;
+  }
+}
+
+.hamburguer-menu-light {
+  background-color: colors.$light-mode-text;
+  color: colors.$light-mode-primary;
+}
+
+.hamburguer-menu-dark {
+  background-color: colors.$dark-mode-text;
 }
