@@ -34,13 +34,13 @@ const HamburguerMenu = () => {
         <MenuToggle toggle={toggleMenu} isOpen={isOpen} />
       </div>
       <motion.aside
-        className={`menu-container ${theme}`}
+        className={`menu-container menu-container-${theme} ${theme}`}
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={variants}
         transition={transtition}
       >
-        <h3>My Favourite Movies</h3>
+        <h3 className="text">My Favourite Movies</h3>
 
         <section className={`favourite-movies-section ${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
@@ -54,7 +54,7 @@ const HamburguerMenu = () => {
           ))}
         </section>
         {movieList.favouriteMoviesList.length > 10 && (
-          <section className="favourite-page-link" >
+          <section className={`favourite-page-link  favourite-page-link-${theme}`} >
             <Link to="/favourites">Ver todas las peliculas</Link>
           </section>
         )}

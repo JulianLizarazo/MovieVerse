@@ -1,3 +1,5 @@
+@use "../../styles/colors.scss";
+
 .favourite-movies-section {
   &__movie {
     width: 100%;
@@ -7,8 +9,20 @@
     margin-block-end: 15px;
     text-decoration: none;
 
-    &:hover {
-      background-color: gray;
+    &-light:hover {
+      background-color: colors.$light-mode-text;
+
+      & h4 {
+        color: colors.$light-mode-primary;
+      }
+    }
+
+    &-dark:hover {
+      background-color: colors.$dark-mode-text;
+
+      & h4 {
+        color: colors.$dark-mode-primary;
+      }
     }
 
     & h4 {
@@ -29,6 +43,14 @@
       }
     }
   }
+}
+
+.trash-icon-light {
+  color: colors.$light-mode-text;
+}
+
+.trash-icon-dark {
+  color: colors.$dark-mode-text;
 }
 
 .animation-div {

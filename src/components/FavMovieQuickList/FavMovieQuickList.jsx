@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { BiTrashAlt } from "react-icons/bi";
 import { useContext, useState } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
+import { ColorModeContext } from "../../context/ColorModeContext";
+
+const hover = {
+  backgroundColor: "#400808",
+}
+
+
 
 const animationToRemove = {
   animate: {
@@ -19,6 +26,7 @@ const FavMovieQuickList = ({
 }) => {
   const [animation, setAnimation] = useState(false);
   const { removeMovieFromFavourites } = useContext(FavouriteMovieListContext);
+  const { theme } = useContext(ColorModeContext);
 
   const handleRemoveMovieFromList = (idMovie) => () => {
     setTimeout(() => {
@@ -36,7 +44,7 @@ const FavMovieQuickList = ({
     >
       <Link
         to={`/movies/${idMovie}`}
-        className="favourite-movies-section__movie text"
+        className={`favourite-movies-section__movie text favourite-movies-section__movie-${theme}`}
       >
         <img
           src={`https://image.tmdb.org/t/p/w154${posterMovie}`}
@@ -49,10 +57,10 @@ const FavMovieQuickList = ({
       </Link>
       <motion.div
         className="favourite-movies-section__movie-remove"
-        whileHover={{ backgroundColor: "rgba(0,0,0,1)" }}
+        whileHover={hover}
         onClick={handleRemoveMovieFromList(idMovie)}
       >
-        <BiTrashAlt />
+        <BiTrashAlt className={`trash-icon-${theme}`} />
       </motion.div>
     </motion.article>
   );
