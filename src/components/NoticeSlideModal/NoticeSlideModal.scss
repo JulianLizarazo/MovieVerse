@@ -1,15 +1,29 @@
+@use "../../styles/colors.scss";
+
 .removed-modal {
   position: fixed;
-
+  font-size: 16px;
   right: 0;
   height: 50px;
   width: 225px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   border-radius: 5px;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+.removed-modal-light{
+  background-color: colors.$button-theme-light-mode;
+  color: colors.$light-mode-text;
+  border: 3px solid colors.$light-mode-third;
+}
+
+.removed-modal-dark{
+  background-color: colors.$button-theme-dark-mode;
+  color: colors.$dark-mode-text;
+  border: 3px solid colors.$dark-mode-third;
 }
 
 @media screen and (min-width: 399px) {

@@ -1,5 +1,7 @@
 import "./NoticeSlideModal.scss";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { ColorModeContext } from "../../context/ColorModeContext";
 
 const variants = {
     hidden: {
@@ -15,10 +17,11 @@ const variants = {
       },
 };
 
-const NoticeSlideModal = ({text, top, textColor, backgroundColor, borderColor}) => {
+const NoticeSlideModal = ({text, top}) => {
+  const { theme } = useContext(ColorModeContext);
   return (
     <motion.div
-      className="removed-modal"
+      className={`removed-modal removed-modal-${theme}`}
       key="remove-modal"
       variants={variants}
       initial="hidden"
@@ -27,9 +30,6 @@ const NoticeSlideModal = ({text, top, textColor, backgroundColor, borderColor}) 
       style={
         {
           top: top === "mobile" ? "600px" : "80px",
-          color: textColor,
-          backgroundColor: backgroundColor,
-          border: `1px solid ${borderColor}`,
         }
       }
     >

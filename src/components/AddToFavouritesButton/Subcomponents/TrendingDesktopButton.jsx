@@ -37,33 +37,35 @@ const TrendingDesktopButton = ({
   }, []);
 
   return (
-    <motion.div onClick={() => setIsAddedNow(!isAddedNow)} whileHover={hover}>
-      {!isAddedNow ? (
-        <span
-          className={`trending-desktop trending-button-add-${theme}`}
-          onClick={handleAddToFavouriteList(
-            movieId,
-            moviePoster,
-            moviePosterAlt,
-            movieTitle
-          )}
-        >
-          Agregar a favoritos
-        </span>
-      ) : (
-        <span
-          className={`trending-desktop trending-button-remove-${theme}`}
-          onClick={handleRemoveMovieFromFavourites(movieId)}
-        >
-          Eliminar de favoritos
-        </span>
-      )}
+    <>
+      <motion.div onClick={() => setIsAddedNow(!isAddedNow)} whileHover={hover}>
+        {!isAddedNow ? (
+          <span
+            className={`trending-desktop trending-button-add-${theme}`}
+            onClick={handleAddToFavouriteList(
+              movieId,
+              moviePoster,
+              moviePosterAlt,
+              movieTitle
+            )}
+          >
+            Agregar a favoritos
+          </span>
+        ) : (
+          <span
+            className={`trending-desktop trending-button-remove-${theme}`}
+            onClick={handleRemoveMovieFromFavourites(movieId)}
+          >
+            Eliminar de favoritos
+          </span>
+        )}
+      </motion.div>
       <AnimatePresence>
         {confirmationToAdded && (
           <NoticeSlideModal text="Eliminado exitosamente" top="desktop" />
         )}
       </AnimatePresence>
-    </motion.div>
+    </>
   );
 };
 

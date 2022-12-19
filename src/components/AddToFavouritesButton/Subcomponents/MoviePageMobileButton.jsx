@@ -44,7 +44,7 @@ const MoviePageMobileButton = ({
     <div onClick={() => verificateToEliminateMovie()}>
       {!isAddedNow ? (
         <AiOutlineHeart
-          className={`movie-page-desktop-button movie-page-button-${theme}`}
+          className={`movie-page-mobile-button movie-page-button-${theme}`}
           onClick={handleAddToFavouriteList(
             movieId,
             moviePoster,
@@ -55,7 +55,7 @@ const MoviePageMobileButton = ({
         />
       ) : (
         <AiFillHeart
-          className={`movie-page-desktop-button movie-page-button-${theme}`}
+          className={`movie-page-mobile-button movie-page-button-${theme}`}
         />
       )}
       <AnimatePresence>

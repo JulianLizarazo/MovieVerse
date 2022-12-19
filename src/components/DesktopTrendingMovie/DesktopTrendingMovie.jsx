@@ -46,7 +46,7 @@ const DesktopTrendingMovie = ({
         aria-label={alt}
       ></div>
       <aside className="desktop-trending-movie__popularity">
-        <div>
+        <div className="div">
           <AiFillStar />
           <span>{voteAverage} / 10</span>
         </div>
