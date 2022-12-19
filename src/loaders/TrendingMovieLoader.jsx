@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import ContentLoader from "react-content-loader";
+import { ColorModeContext } from "../context/ColorModeContext";
 import { useWindowSize } from "../hooks/useWindowSize";
-
+import { styles } from "./loaderColors";
 
 const TrendingMovieLoader = () => {
     const { width } = useWindowSize();
+    const { theme } = useContext(ColorModeContext);
    
   return (
     <div style={{overflowX:"hidden", padding: "70px 0 30px 10px"}}>
@@ -12,8 +15,8 @@ const TrendingMovieLoader = () => {
         width={width}
         height={360}
         viewBox={`0 0 ${width} 360`}
-        backgroundColor="#666"
-        foregroundColor="#ecebeb"
+        backgroundColor={ theme === "light" ? styles.light.backgroundColor : styles.dark.backgroundColor }
+        foregroundColor={ theme === "light" ? styles.light.foregroundColor : styles.dark.foregroundColor }
        
       >
         <rect x="10" y="60" rx="10" ry="10" width="200" height="300" />
