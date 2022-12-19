@@ -9,7 +9,7 @@ const MoviesByGenreLoader = () => {
   const { theme } = useContext(ColorModeContext);
 
   return (
-    <div style={{ overflowX: "hidden", padding: "70px 0 30px 10px" }}>
+    <div style={{ overflowX: "hidden", padding: "70px 0 30px 10px", height: "80vh" }}>
       <ContentLoader
         speed={2}
         width={width}
