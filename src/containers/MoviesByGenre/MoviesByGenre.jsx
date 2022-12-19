@@ -6,11 +6,12 @@ import { useNearScreen } from "../../hooks/useNearScreen";
 import { useCallback, useEffect, useRef, useState } from "react";
 import debounce from "just-debounce-it";
 import { InfiniteScrollingMovieLoader } from "../../loaders/InfiniteScrollingMovieLoader";
-import { useSearchMovies } from "../../hooks/useSearchMovies";
+import { useGenres } from "../../hooks/useGenres";
 
 export default function MoviesByGenre({typeOfPage}) {
   const [infiniteLoading, setInfiniteLoading] = useState(false);
   const { id } = useParams();
+  const { getGenre } = useGenres();
   const { movies, setPage, loading } = typeOfPage === "genre" ?  useMoviesByGenre(id) : useMoviesByGenre(id, true);
   const externalRef = useRef();
   const { isNearScreen } = useNearScreen({
@@ -39,8 +40,12 @@ export default function MoviesByGenre({typeOfPage}) {
     }
   }, [loading]);
 
+ 
+  
+
   return (
     <>
+      <h2 className="genre-title">Género "{getGenre(id)}"</h2>
       <section className="genre-page__movie">
         {movies.map((movieByGenre) => (
           <MovieByGenre
