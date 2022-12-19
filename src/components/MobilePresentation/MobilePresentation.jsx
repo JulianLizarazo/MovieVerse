@@ -16,15 +16,15 @@ const MobilePresentation = () => {
 
             <article className="mobile-presentation__info">
                 <MdMovieFilter/>
-                <p>Sjajkasjkaskj sjaskjasjkas jkas</p>
+                <p>Encuentra información de peliculas que conoces</p>
             </article>
             <article className="mobile-presentation__info">
                 <AiFillHeart/>
-                <p>Add to your favourites list</p>
+                <p>Añadelas a tu lista de favoritos</p>
             </article>
             <article className="mobile-presentation__info">
                 <AiOutlineSearch/>
-                <p>Find new movies</p>
+                <p>Descubre nuevas peliculas</p>
             </article>
             </div>
         </section>
