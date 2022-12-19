@@ -4,7 +4,6 @@ import { MoviePageDesktopButton } from "./Subcomponents/MoviePageDesktopButton";
 import "./AddToFavouritesButton.scss";
 import { MoviePageMobileButton } from "./Subcomponents/MoviePageMobileButton";
 import { TrendingDesktopButton } from "./Subcomponents/TrendingDesktopButton";
-import { TrendingMobileButton } from "./Subcomponents/TrendingMobileButton";
 
 const AddToFavouritesButton = ({
   movieId,
@@ -33,16 +32,6 @@ const AddToFavouritesButton = ({
     case "trending-desktop":
       return (
         <TrendingDesktopButton
-          handleAddToFavouriteList={handleAddToFavouriteList}
-          movieId={movieId}
-          moviePoster={moviePoster}
-          moviePosterAlt={moviePosterAlt}
-          movieTitle={movieTitle}
-        />
-      );
-    case "trending-mobile":
-      return (
-        <TrendingMobileButton
           handleAddToFavouriteList={handleAddToFavouriteList}
           movieId={movieId}
           moviePoster={moviePoster}

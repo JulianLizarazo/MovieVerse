@@ -1,3 +1,5 @@
+@use "../../styles/colors.scss";
+
 .trending-movie {
   min-width: 200px;
   height: 300px;
@@ -8,6 +10,7 @@
   margin-inline-end: 30px;
   position: relative;
   display: flex;
+  z-index: 1;
 
   &__vote-average {
     width: 120px;
@@ -23,7 +26,10 @@
   }
 }
 
-.star-icon {
-  color: rgb(213, 213, 38);
+.star-icon-light {
+  color: colors.$light-mode-third;
 }
 
+.star-icon-dark {
+  color: colors.$dark-mode-text;
+}
