@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import ContentLoader from "react-content-loader";
+import { ColorModeContext } from "../context/ColorModeContext";
 import { useWindowSize } from "../hooks/useWindowSize";
+import { styles } from "./loaderColors";
 
 const MoviePageGalleryImagesLoader = () => {
   const { width } = useWindowSize();
-
+  const { theme } = useContext(ColorModeContext);
   return (
     <>
       {width > 1023 ? (
@@ -13,8 +16,8 @@ const MoviePageGalleryImagesLoader = () => {
             width={width}
             height={360}
             viewBox={`0 0 ${width} 360`}
-            backgroundColor="#666"
-            foregroundColor="#ecebeb"
+            backgroundColor={ theme === "light" ? styles.light.backgroundColor : styles.dark.backgroundColor }
+        foregroundColor={ theme === "light" ? styles.light.foregroundColor : styles.dark.foregroundColor }
           >
             <rect x="38vw" y="20" rx="0" ry="0" width="250" height="32" />
             <rect x="25vw" y="89" rx="0" ry="0" width="50vw" height="25vh" />
@@ -43,8 +46,8 @@ const MoviePageGalleryImagesLoader = () => {
             width={width}
             height={500}
             viewBox={`0 0 ${width} 500`}
-            backgroundColor="#666"
-            foregroundColor="#ecebeb"
+            backgroundColor={ theme === "light" ? styles.light.backgroundColor : styles.dark.backgroundColor }
+        foregroundColor={ theme === "light" ? styles.light.foregroundColor : styles.dark.foregroundColor }
           >
            <rect x="30%" y="0" rx="0" ry="0" width="40vw" height="20" />
            <rect x="22" y="122" rx="10" ry="0" width="80vw" height="35vh" />

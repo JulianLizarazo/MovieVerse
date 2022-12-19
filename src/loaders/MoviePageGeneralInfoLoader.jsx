@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import ContentLoader from "react-content-loader";
+import { ColorModeContext } from "../context/ColorModeContext";
 import { useWindowSize } from "../hooks/useWindowSize";
+import { styles } from "./loaderColors";
 
 const MoviePageGeneralInfoLoader = () => {
   const { width } = useWindowSize();
+  const { theme } = useContext(ColorModeContext)
 
   return (
     <>
@@ -13,8 +17,8 @@ const MoviePageGeneralInfoLoader = () => {
             width={width}
             height={400}
             viewBox={`0 0 ${width} 400`}
-            backgroundColor="#666"
-            foregroundColor="#ecebeb"
+            backgroundColor={ theme === "light" ? styles.light.backgroundColor : styles.dark.backgroundColor }
+        foregroundColor={ theme === "light" ? styles.light.foregroundColor : styles.dark.foregroundColor }
           >
             <rect x="70vw" y="31" rx="10" ry="10" width="200" height="80%" />
             <rect x="30vw" y="39" rx="0" ry="0" width="145" height="27" />
@@ -29,8 +33,8 @@ const MoviePageGeneralInfoLoader = () => {
             width={width}
             height={1000}
             viewBox={`0 0 ${width} 1000`}
-            backgroundColor="#666"
-            foregroundColor="#ecebeb"
+            backgroundColor={ theme === "light" ? styles.light.backgroundColor : styles.dark.backgroundColor }
+        foregroundColor={ theme === "light" ? styles.light.foregroundColor : styles.dark.foregroundColor }
           >
             <rect x="30%" y="0" rx="0" ry="0" width="40vw" height="20" />
 
