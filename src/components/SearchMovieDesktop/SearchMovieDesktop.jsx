@@ -76,7 +76,7 @@ const SearchMovieDesktop = ({
               </article>
             </Link>
           ))}
-          <p onClick={handleSubmit} className="movies-searched__show-results">
+          <p onClick={handleSubmit} className={`movies-searched__show-results show-results-${theme}`}>
             Ver más resultados
           </p>
         </section>

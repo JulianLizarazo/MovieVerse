@@ -84,3 +84,20 @@
     cursor: pointer;
     
   }
+
+  .show-results-light{
+    background-color: colors.$light-mode-primary;
+
+    &:hover{
+      background-color: colors.$light-mode-third;
+    }
+  }
+
+  .show-results-dark{
+    background-color: colors.$dark-mode-primary;
+
+    
+    &:hover{
+      background-color: colors.$dark-mode-third;
+    }
+  }

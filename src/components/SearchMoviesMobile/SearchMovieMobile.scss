@@ -62,3 +62,13 @@
   background-color: colors.$button-theme-dark-mode;
   color: colors.$dark-mode-text;
 }
+
+.movie-searched-light{
+  background-color: colors.$light-mode-primary;
+  color: colors.$light-mode-text;
+}
+
+.movie-searched-dark{
+  color: colors.$dark-mode-text;
+  background-color: colors.$dark-mode-primary;
+}
