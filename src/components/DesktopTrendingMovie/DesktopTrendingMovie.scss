@@ -56,6 +56,10 @@
     }
 
     &-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
       width: 200px;
       height: 50px;
       font-family: variables.$font-family;
@@ -65,9 +69,18 @@
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-      background-color: colors.$dark-mode-secondary;
-      color: white;
       border: none;
     }
   }
+}
+
+.button-details-light{
+  background-color: colors.$button-theme-light-mode;
+  color: colors.$light-mode-text;
+}
+
+.button-details-dark{
+  background-color: colors.$dark-mode-text;
+  color: white;
+  
 }

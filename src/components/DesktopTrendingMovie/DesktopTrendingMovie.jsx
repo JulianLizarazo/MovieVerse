@@ -4,7 +4,14 @@ import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesB
 import { useState } from "react";
 import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ColorModeContext } from "../../context/ColorModeContext";
+
+const hover = {
+  scale: 1.2,
+};
 
 const DesktopTrendingMovie = ({
   id,
@@ -15,6 +22,7 @@ const DesktopTrendingMovie = ({
   alt,
 }) => {
   const [confirmationToAdded, setConfirmationToAdded] = useState(false);
+  const { theme } = useContext(ColorModeContext);
 
   useEffect(() => {
     if (confirmationToAdded) {
@@ -51,9 +59,14 @@ const DesktopTrendingMovie = ({
           moviePosterAlt={alt}
           confirmationState={setConfirmationToAdded}
         />
-        <button className="desktop-trending-movie__popularity-details">
-          Details
-        </button>
+        <motion.div whileHover={hover}>
+          <Link
+            to={`movies/${id}`}
+            className={`desktop-trending-movie__popularity-details button-details-${theme}`}
+          >
+            Details
+          </Link>
+        </motion.div>
       </aside>
       <AnimatePresence>
         {confirmationToAdded && (
