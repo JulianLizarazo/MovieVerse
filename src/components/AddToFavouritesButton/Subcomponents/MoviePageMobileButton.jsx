@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { ColorModeContext } from "../../../context/ColorModeContext";
 import { FavouriteMovieListContext } from "../../../context/FavouriteMovieListContext";
 import { useAddedAnimationConfirmation } from "../../../hooks/useAddedAnimationConfirmation";
 import { NoticeSlideModal } from "../../NoticeSlideModal/NoticeSlideModal";
@@ -20,6 +21,8 @@ const MoviePageMobileButton = ({
 
   const { confirmationToAdded, setConfirmationToAdded } =
     useAddedAnimationConfirmation();
+
+  const { theme } = useContext(ColorModeContext);
 
   useEffect(() => {
     if (movieAddedVerificate(movieId)) {
@@ -41,7 +44,7 @@ const MoviePageMobileButton = ({
     <div onClick={() => verificateToEliminateMovie()}>
       {!isAddedNow ? (
         <AiOutlineHeart
-          className="movie-page-mobile-button"
+          className={`movie-page-desktop-button movie-page-button-${theme}`}
           onClick={handleAddToFavouriteList(
             movieId,
             moviePoster,
@@ -51,7 +54,9 @@ const MoviePageMobileButton = ({
           )}
         />
       ) : (
-        <AiFillHeart className="movie-page-mobile-button" />
+        <AiFillHeart
+          className={`movie-page-desktop-button movie-page-button-${theme}`}
+        />
       )}
       <AnimatePresence>
         {confirmationToAdded && (

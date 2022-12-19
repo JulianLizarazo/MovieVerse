@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { ColorModeContext } from "../../../context/ColorModeContext";
 import { FavouriteMovieListContext } from "../../../context/FavouriteMovieListContext";
 import { useAddedAnimationConfirmation } from "../../../hooks/useAddedAnimationConfirmation";
 import { NoticeSlideModal } from "../../NoticeSlideModal/NoticeSlideModal";
@@ -20,6 +21,8 @@ const MoviePageDesktopButton = ({
   );
   const { confirmationToAdded, setConfirmationToAdded } =
     useAddedAnimationConfirmation();
+
+  const { theme } = useContext(ColorModeContext);
 
   useEffect(() => {
     if (movieAddedVerificate(movieId)) {
@@ -46,10 +49,12 @@ const MoviePageDesktopButton = ({
       onClick={() => verificateToEliminateMovie()}
     >
       {!isHovering && !isAddedNow ? (
-        <AiOutlineHeart className="movie-page-desktop-button" />
+        <AiOutlineHeart
+          className={`movie-page-desktop-button movie-page-button-${theme}`}
+        />
       ) : (
         <AiFillHeart
-          className="movie-page-desktop-button"
+          className={`movie-page-desktop-button movie-page-button-${theme}`}
           onClick={handleAddToFavouriteList(
             movieId,
             moviePoster,
