@@ -13,7 +13,7 @@ export default function MovieRecommendations({ movieRecommendations }) {
 
   return (
     <section className={`movie-recommendations ${theme}`}>
-      <h2 className="text">Recommendations</h2>
+      <h2 className="text">Recomendaciones</h2>
       <section className={`movie-recommendations__movie text scroll-horizontal-${theme}`}>
         {movieRecommendations?.map((movieRecommendation) => (
           <div onClick={handleReload}>

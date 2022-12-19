@@ -8,7 +8,7 @@ export default function MovieProductionCompanies({ productionCompanies }){
   return (
     <section className={`movie-production-companies ${theme} `}>
       <h2 className="movie-production-companies__title text">
-        Production Companies
+        Compañías Productoras
       </h2>
       <ul className={`movie-production-companies__ul text scroll-${theme}`}>
         {productionCompanies?.map((productionCompanie) => (

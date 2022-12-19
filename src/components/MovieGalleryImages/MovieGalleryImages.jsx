@@ -11,7 +11,7 @@ export default function MovieGalleryImages({ movieImages }){
 
   return (
     <section className={`movie-gallery-images ${theme}`}>
-      <h2 className="movie-gallery-images__title text">Image Gallery</h2>
+      <h2 className="movie-gallery-images__title text">Galería</h2>
 
       <SwiperMovieGallery title="Backdrop" imageType={movieImages?.backdrops} />
     </section>
