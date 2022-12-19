@@ -12,7 +12,7 @@ const MovieSearchResults = () => {
   return (
     <main className={`movie-search-results ${theme} `}>
       <div className="text">
-        <h2>Resultados para "{id}"</h2>
+        <h2 className="search-results-title">Resultados para "{id}"</h2>
         <LazyMoviesByGenre content="searchResults" />
       </div>
     </main>

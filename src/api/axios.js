@@ -9,7 +9,7 @@ export const API = axios.create({
 
     params:{
         'api_key': import.meta.env.VITE_ACCESS_TOKEN,
-        'language': 'es-ES',
+        'language': 'es-MX',
     }
         
 })
