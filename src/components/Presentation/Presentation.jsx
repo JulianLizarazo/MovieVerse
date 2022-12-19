@@ -53,9 +53,9 @@ const Presentation = () => {
     translateY: [10, 0],
   });
   const parallaxText = useParallax({
-    translateX: [-50, 38],
+    translateX: [-50, 118],
     startScroll: 1,
-    endScroll: 1300,
+    endScroll: 1600,
   });
   const parallaxText2 = useParallax({
     translateX: [200, 58],
@@ -71,7 +71,7 @@ const Presentation = () => {
   });
 
   const parallaxText3 = useParallax({
-    translateX: [-100, 28],
+    translateX: [-100, 37],
     startScroll: 2800,
     endScroll: 5000,
   });
@@ -102,7 +102,7 @@ const Presentation = () => {
               <Image path={trendingMovies[2]?.poster} alt={trendingMovies[2]?.alt}/>
             </div>
           </div>
-          <p ref={parallaxText.ref}>Find </p>
+          <p ref={parallaxText.ref}>Encuentra información de peliculas que conoces </p>
         </section>
       </section>
       <section className="text favourites">
@@ -116,12 +116,12 @@ const Presentation = () => {
               </motion.div>
             )}
           </div>
-          <p ref={parallaxText2.ref}>Add to your favourites list</p>
+          <p ref={parallaxText2.ref}>Añadelas a tu lista de favoritos</p>
         </section>
       </section>
       <section className="text search-unknown-movies">
         <section className="search-unknown-movies__content">
-          <p ref={parallaxText3.ref}>Discover new movies</p>
+          <p ref={parallaxText3.ref}>Descubre nuevas peliculas</p>
           <div ref={parallaxSearch.ref}>
             {!animationSearch ? (
               <AiOutlineSearch className="search-animation" />
