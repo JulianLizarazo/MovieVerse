@@ -1,3 +1,5 @@
+@use "../../styles/colors.scss";
+
 .confirmation-to-remove-modal {
   width: 100%;
   height: 110%;
@@ -20,6 +22,26 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.yes-button-light{
+  background-color: colors.$button-theme-light-mode;
+  color: colors.$light-mode-text;
+}
+
+.yes-button-dark{
+  background-color: colors.$button-theme-dark-mode;
+  color: colors.$dark-mode-text;
+}
+
+.no-button-light{
+  background-color: colors.$light-mode-text;
+  color: colors.$button-theme-light-mode;
+}
+
+.no-button-dark{
+  background-color: colors.$dark-mode-text;
+  color: colors.$button-theme-dark-mode;
 }
 
 

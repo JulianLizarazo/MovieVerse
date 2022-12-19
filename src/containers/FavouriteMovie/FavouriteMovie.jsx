@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
 import { NoticeSlideModal } from "../../components/NoticeSlideModal/NoticeSlideModal";
+import { ColorModeContext } from "../../context/ColorModeContext";
 
 const removeAnimation = {
   eliminate: {
@@ -21,6 +22,7 @@ const FavouriteMovie = ({
   moviePoster,
   moviePosterAlt,
 }) => {
+  const { theme } = useContext(ColorModeContext);
   const [animationToRemove, setAnimationToRemove] = useState(false);
   const [confirmationToRemove, setConfirmationToRemove] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
@@ -62,15 +64,15 @@ const FavouriteMovie = ({
         <h4>{movieTitle}</h4>
         <div className="favourite-movies__list-movie--options">
           <Link to={`/movies/${movieId}`}>
-            <motion.div className="go-to-movie-option">
-              <AiOutlineEye />
+            <motion.div className={`go-to-movie-option go-to-movie-option-${theme}`}>
+              <AiOutlineEye  />
             </motion.div>
           </Link>
           <motion.div
-            className="delete-movie-option"
+            className={`delete-movie-option delete-movie-option-${theme}`}
             onClick={() => setShowConfirmationModal(true)}
           >
-            <TbLetterX />
+            <TbLetterX/>
           </motion.div>
         </div>
 

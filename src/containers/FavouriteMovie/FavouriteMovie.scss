@@ -1,3 +1,5 @@
+@use "../../styles/colors.scss";
+
 .favourite-movies__list {
   margin-block-start: 80px;
   display: flex;
@@ -45,9 +47,54 @@
 }
 
 .go-to-movie-option {
-  background-color: green;
+ 
+  &-light{
+    background-color: colors.$button-theme-light-mode;
+    border: 1px solid colors.$light-mode-text;
+    &:hover{
+      background-color: colors.$light-mode-primary;
+    }
+    & svg {
+      color: colors.$light-mode-text;
+    }
+
+  }
+
+  &-dark{
+    background-color: colors.$button-theme-dark-mode;
+    border: 1px solid colors.$dark-mode-text;
+
+    &:hover{
+      background-color: colors.$dark-mode-primary;
+    }
+    & svg {
+      color: colors.$dark-mode-text;
+    }
+  }
 }
 
 .delete-movie-option {
-  background-color: red;
+
+  &-light{
+    background-color: colors.$light-mode-text;
+    border: 1px solid colors.$button-theme-light-mode;
+    &:hover{
+      background-color: colors.$light-mode-third;
+    }
+    & svg {
+      color: colors.$button-theme-light-mode;
+    }
+
+  }
+
+  &-dark{
+    background-color: colors.$light-mode-text;
+    border: 1px solid colors.$button-theme-dark-mode;
+    &:hover{
+      background-color: colors.$dark-mode-third;
+    }
+    & svg {
+      color: colors.$button-theme-dark-mode;
+    }
+  }
 }
