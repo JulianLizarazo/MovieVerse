@@ -58,7 +58,6 @@ const Header = () => {
     document.getElementById("search-menu").style.display = "none";
     if (width < 1023) {
       document.getElementById("search-menu-mobile").style.opacity = "0";
-      document.getElementById("box-opacity").style.display = "none";
     }
   };
 
@@ -66,7 +65,6 @@ const Header = () => {
     document.getElementById("search-menu").style.display = "block";
     if (width < 1023) {
       document.getElementById("search-menu-mobile").style.opacity = "1";
-      document.getElementById("box-opacity").style.display = "block";
     }
   };
 
@@ -125,10 +123,6 @@ const Header = () => {
           hiddenMenu={hiddenMenu}
           showMenu={showMenu}
         />
-      )}
-
-      {clickSearchButton && width < 769 && (
-        <div className="box-opacity" id="box-opacity"></div>
       )}
     </>
   );

@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 20;
   z-index: 150;
   box-shadow: 0px 10px 19px -5px #504b4b;
@@ -64,14 +64,6 @@
 .search-button {
   cursor: pointer;
   z-index: 2;
-}
-
-.box-opacity {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 40%;
 }
 
 .search-desktop {
