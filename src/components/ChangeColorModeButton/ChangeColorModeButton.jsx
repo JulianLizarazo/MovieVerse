@@ -1,7 +1,7 @@
 import "./ChangeColorModeButton.scss";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 
 const variants = {
@@ -15,15 +15,9 @@ const variants = {
 };
 
 const ChangeColorModeButton = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const { theme, changeThemeMode } = useContext(ColorModeContext);
 
-  const changeThemeButton = () => {
-    setDarkMode(!darkMode);
-  };
-
   const handleChangeThemeMode = () => () => {
-    changeThemeButton();
     changeThemeMode();
   };
 
@@ -35,11 +29,11 @@ const ChangeColorModeButton = () => {
       <motion.div
         className={`change-container__circle ${theme}-button`}
         initial={false}
-        animate={!darkMode ? "left" : "right"}
+        animate={theme === "light" ? "left" : "right"}
         variants={variants}
       >
         <div className="text-button">
-          {!darkMode ? (
+          {theme === "light" ? (
             <BsFillSunFill className="change-container__circle-icon" />
           ) : (
             <BsFillMoonFill className="change-container__circle-icon" />

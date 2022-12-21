@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 
-
+const initialState = {
+  colorMode: "dark",
+};
 
 export const useChangeColorMode = () => {
-    const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    const localData = localStorage.getItem("colorMode");
 
-    const changeThemeMode = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-        
-    }
+    return localData ? JSON.parse(localData) : initialState;
+  });
+  const changeThemeMode = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
-    useEffect(() => {
-        changeThemeMode();
-    }, []);
+  useEffect(() => {
+    localStorage.setItem("colorMode", JSON.stringify(theme));
+  }, [theme]);
 
-    return{
-        theme,
-        changeThemeMode,
-    }
-}
+  return {
+    theme,
+    changeThemeMode,
+  };
+};
