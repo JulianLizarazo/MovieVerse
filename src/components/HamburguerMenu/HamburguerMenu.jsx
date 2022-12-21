@@ -74,7 +74,7 @@ const HamburguerMenu = () => {
         id="list"
         ref={menuRef}
       >
-        <h3 className="text">My Favourite Movies</h3>
+        <h3 className="text">Mis Peliculas Favoritas</h3>
 
         <section className={`favourite-movies-section ${theme} scroll-bar-${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
