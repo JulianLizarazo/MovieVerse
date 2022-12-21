@@ -67,6 +67,7 @@ const SearchMovieMobile = ({
               </article>
             </Link>
           ))}
+         
         </section>
       )}
     </motion.section>
