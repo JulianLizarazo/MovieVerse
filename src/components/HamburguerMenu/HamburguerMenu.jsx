@@ -86,6 +86,7 @@ const HamburguerMenu = () => {
               key={favouriteMovie.title}
             />
           ))}
+          {movieList.favouriteMoviesList.length === 0 && <p className="text no-movies-text">Aún no has agregado ninguna pelicula...</p>}
         </section>
         {movieList.favouriteMoviesList.length > 10 && (
           <section className={`favourite-page-link  favourite-page-link-${theme}`} onClick={hiddenMenu}>
