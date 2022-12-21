@@ -35,9 +35,7 @@ export const useFavouriteMovies = () => {
           },
         ],
       });
-    } else {
-      alert("la pelicula ya está agregada xd");
-    }
+    } 
   };
 
   const findMovie = (movie) => {

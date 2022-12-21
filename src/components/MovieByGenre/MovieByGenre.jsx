@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { AiFillStar } from "react-icons/ai";
 import "./MovieByGenre.scss";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { useContext } from "react";
+import { ColorModeContext } from "../../context/ColorModeContext";
 
 
 const animateProps = {
@@ -17,6 +19,7 @@ const MovieByGenre = ({ id, title, poster, voteAverage,}) => {
   };
 
   const { width } = useWindowSize();
+  const { theme } = useContext(ColorModeContext);
 
 
   return (
@@ -29,7 +32,7 @@ const MovieByGenre = ({ id, title, poster, voteAverage,}) => {
         
       >
         <div className="movie-by-genre__popularity">
-          <AiFillStar className="movie-by-genre-icon" />
+          <AiFillStar className={`movie-by-genre-icon movie-by-genre-icon-${theme}`} />
           <span>{`${voteAverage} / 10`}</span>
         </div>
         <h3 className="movie-by-genre__title">{title}</h3>

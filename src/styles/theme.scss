@@ -18,6 +18,42 @@
         color: colors.$dark-mode-text;
     }
 
-    
+   
 }
+
+.scroll-bar-light{
+    &::-webkit-scrollbar{
+      background-color: colors.$light-mode-primary;
+      width: 0.5em;
+  
+    }
+  
+    &::-webkit-scrollbar-thumb{
+      background-color: colors.$light-mode-third;
+      border-radius: 5px;
+  
+      &:hover{
+        background-color: colors.$light-mode-text;
+      }
+    }
+  
+    
+  }
+  
+  .scroll-bar-dark{
+    &::-webkit-scrollbar{
+      background-color: colors.$dark-mode-primary;
+      width: 0.5em;
+  
+    } 
+  
+    &::-webkit-scrollbar-thumb{
+      background-color: colors.$dark-mode-third;
+      border-radius: 5px;
+  
+      &:hover{
+        background-color: colors.$dark-mode-text;
+      }
+    }
+  }
 

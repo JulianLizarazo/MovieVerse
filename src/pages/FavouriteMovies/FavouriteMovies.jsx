@@ -5,10 +5,12 @@ import { FavouriteMovieListContext } from "../../context/FavouriteMovieListConte
 import "./FavouriteMovies.scss";
 
 import { FavouriteMovie } from "../../containers/FavouriteMovie/FavouriteMovie";
+import { useEffect } from "react";
 
 const FavouriteMovies = () => {
   const { theme } = useContext(ColorModeContext);
   const { movieList } = useContext(FavouriteMovieListContext);
+
 
   return (
     <>

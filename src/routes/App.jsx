@@ -10,10 +10,13 @@ import { MovieSearchResults } from "../pages/MovieSearchResults/MovieSearchResul
 import { useFavouriteMovies } from "../hooks/useFavouriteMovies";
 import { FavouriteMovieListContext } from "../context/FavouriteMovieListContext";
 import { FavouriteMovies } from "../pages/FavouriteMovies/FavouriteMovies";
+import { useContext } from "react";
+import ScrollToTop from "./ScrollToTop.jsx";
 
 function App() {
   const themeInitialState = useChangeColorMode();
   const favouriteMovieListInitialState = useFavouriteMovies();
+
   return (
     <ColorModeContext.Provider value={themeInitialState}>
       <FavouriteMovieListContext.Provider
@@ -21,19 +24,25 @@ function App() {
       >
         <ParallaxProvider>
           <BrowserRouter>
-            <Layout>
-              <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path=":id" element={<GenrePage />} />
-                <Route exact path="/movies/:idMovie" element={<Movie />} />
-                <Route
-                  exact
-                  path="/search/:id"
-                  element={<MovieSearchResults />}
-                />
-                <Route exact path="/favourites" element={<FavouriteMovies/>} />
-              </Routes>
-            </Layout>
+            <ScrollToTop>
+              <Layout>
+                <Routes>
+                  <Route exact path="/" element={<Home />} />
+                  <Route exact path=":id" element={<GenrePage />} />
+                  <Route exact path="/movies/:idMovie" element={<Movie />} />
+                  <Route
+                    exact
+                    path="/search/:id"
+                    element={<MovieSearchResults />}
+                  />
+                  <Route
+                    exact
+                    path="/favourites"
+                    element={<FavouriteMovies />}
+                  />
+                </Routes>
+              </Layout>
+            </ScrollToTop>
           </BrowserRouter>
         </ParallaxProvider>
       </FavouriteMovieListContext.Provider>

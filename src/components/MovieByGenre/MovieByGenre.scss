@@ -1,3 +1,5 @@
+@use "../../styles/colors.scss";
+
 .movie-by-genre {
   width: 200px;
   height: 300px;
@@ -11,11 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: yellow;
     opacity: 0;
-
+    
     & span {
       margin-inline-start: 10px;
+      color: white;
     }
   }
   &__title {
@@ -46,7 +48,15 @@
 .movie-by-genre-icon {
   width: 20px;
   height: 20px;
+  &-light{
+    color: colors.$light-mode-third;
+  }
+  &-dark{
+    color: colors.$dark-mode-text;
+  }
 }
+
+
 
 @media screen and (max-width: 769px) {
   .movie-by-genre__title,

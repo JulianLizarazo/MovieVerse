@@ -42,7 +42,7 @@ const HamburguerMenu = () => {
       >
         <h3 className="text">My Favourite Movies</h3>
 
-        <section className={`favourite-movies-section ${theme}`}>
+        <section className={`favourite-movies-section ${theme} scroll-bar-${theme}`}>
           {movieList.favouriteMoviesList.map((favouriteMovie) => (
             <FavMovieQuickList
               idMovie={favouriteMovie.id}

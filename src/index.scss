@@ -1,5 +1,5 @@
 @use "./styles/variables.scss";
-
+@use "./styles/colors.scss";
 *{
     box-sizing: border-box;
     margin: 0;
@@ -8,6 +8,22 @@
 
 body {
     font-family: variables.$font-family;
+   overflow: overlay;
+
+    &::-webkit-scrollbar{
+        width: 0.8em;
+        
+    
+      }
+    
+      &::-webkit-scrollbar-thumb{
+        background-color: colors.$light-mode-third;
+        border-radius: 5px;
+    
+        &:hover{
+          background-color: colors.$light-mode-text;
+        }
+      }
     
 }
 

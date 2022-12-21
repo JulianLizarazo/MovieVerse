@@ -64,7 +64,7 @@ const DesktopTrendingMovie = ({
             to={`movies/${id}`}
             className={`desktop-trending-movie__popularity-details button-details-${theme}`}
           >
-            Details
+            Detalles
           </Link>
         </motion.div>
       </aside>
