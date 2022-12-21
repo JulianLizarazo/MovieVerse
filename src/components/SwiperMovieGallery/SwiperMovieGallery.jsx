@@ -49,7 +49,7 @@ const SwiperMovieGallery = ({ imageType }) => {
         className="movie-gallery-images__backdrop"
       >
         {imageType?.map((image) => (
-          <SwiperSlide className="movie-gallery-images__backdrop--slide">
+          <SwiperSlide className="movie-gallery-images__backdrop--slide" key={image.file_path} >
             <img
               src={`${IMAGES_URL}w1280${image.file_path}`}
               loading="lazy"

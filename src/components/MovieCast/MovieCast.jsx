@@ -12,7 +12,7 @@ const MovieCast = ({ id }) => {
       <h2 className="text">Casting</h2>
       <section className={`cast-movie text scroll-horizontal-${theme}`}>
         {cast.map((actor) => (
-          <article className={`cast-movie__actor border-${theme}`}>
+          <article className={`cast-movie__actor border-${theme}`} key={actor.name} >
             <img
               src={`${IMAGES_URL}w200${actor.profile_path}`}
               loading="lazy"

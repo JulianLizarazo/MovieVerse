@@ -12,7 +12,7 @@ export const useMovieRecommendations = (movieId) => {
             const fetch = await getMovieRecommendations(movieId);
             setMovieRecommendations(fetch?.data?.results);
         } catch(error){
-            console.log(error);
+            
         }
         setLoading(false);
     };

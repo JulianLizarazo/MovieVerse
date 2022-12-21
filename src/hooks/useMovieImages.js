@@ -13,7 +13,7 @@ export const useMovieImages = (idMovie) => {
             setMovieImages(fetch?.data);
 
         } catch(error) {
-            console.log(error);
+            
         }
         setLoading(false);
     }

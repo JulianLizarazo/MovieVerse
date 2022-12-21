@@ -23,7 +23,7 @@ export const useTrendingMovies = () => {
 
       setTrendingMovies(dataMovies);
     } catch (error) {
-      console.log(error);
+     
     }
   }, []);
 

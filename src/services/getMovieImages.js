@@ -5,7 +5,7 @@ const getMovieImages = async (movieId) => {
     const response = await APIIMAGES(`movie/${movieId}/images`,);
     return response;
   } catch (error) {
-    console.log(error);
+    
   }
 };
 

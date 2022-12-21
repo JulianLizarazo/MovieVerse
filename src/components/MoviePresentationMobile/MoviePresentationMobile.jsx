@@ -48,7 +48,7 @@ export default function MoviePresentationMobile({
         </div>
         <div className="movie-mobile-title-and-genres__genres text">
           {genres.map((genre) => (
-            <Link to={`/${genre.id}`} className="link">
+            <Link to={`/${genre.id}`} className="link" key={genre.id} > 
               <span className={`text genre-mobile-${theme}`}>{genre.name}</span>
             </Link>
           ))}

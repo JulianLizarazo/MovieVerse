@@ -39,7 +39,7 @@ export default function DesktopTrendingMovies(){
       ref={swiperRef}
     >
       {trendingMovies.map((trendingMovie) => (
-        <SwiperSlide className="trending-movies-img">
+        <SwiperSlide className="trending-movies-img" key={trendingMovie.id}>
           <div
             style={{
               backgroundImage: `url(${IMAGES_URL}original${trendingMovie.poster})`,

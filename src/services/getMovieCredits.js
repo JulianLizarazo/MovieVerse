@@ -5,7 +5,7 @@ const getMovieCredits = async (movieId) => {
     const response = await API(`movie/${movieId}/credits`);
     return response;
   } catch (error) {
-    console.log(error);
+  
   }
 };
 

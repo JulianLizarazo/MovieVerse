@@ -29,7 +29,7 @@ export const useMoviesByGenre = (genreId, isSearch = false) => {
         );
       }
     } catch (error) {
-      console.log(error);
+      
     }
     setLoading(false);
   };

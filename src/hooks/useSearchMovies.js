@@ -10,7 +10,7 @@ export const useSearchMovies = (keyword) => {
       setMoviesSearched(fetchSearch.data.results);
 
     } catch (error) {
-      console.log(error);
+     
     }
   };
 

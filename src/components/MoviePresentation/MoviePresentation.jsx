@@ -50,7 +50,7 @@ export default function MoviePresentation({
           <h2>{title}</h2>
           <div>
             {genres?.map((genre) => (
-              <Link to={`/${genre.id}`} className="link">
+              <Link to={`/${genre.id}`} className="link" key={genre.id} >
                 <span>{genre.name}</span>
               </Link>
             ))}

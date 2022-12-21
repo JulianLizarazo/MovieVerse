@@ -10,7 +10,7 @@ export const useMovieCredits = (movieId) => {
       const castArray = fetch.data.cast;
       setCast(castArray);
     } catch (error) {
-      console.log(error);
+      
     }
   };
 

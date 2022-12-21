@@ -1,19 +1,18 @@
-import { API } from "../api/axios"
+import { API } from "../api/axios";
 
-const getMovieSearched = async ({page = 1, movieToSearch = ""}) => {
-    
-    try{
-        const response = await API('search/movie', {
-            params: {
-                page: page,
-                query: movieToSearch,
-            }
-        });
+const getMovieSearched = async ({ page = 1, movieToSearch = "" }) => {
+  if (movieToSearch !== "") {
+    try {
+      const response = await API("search/movie", {
+        params: {
+          page: page,
+          query: movieToSearch,
+        },
+      });
 
-        return response;
-    } catch (error){
-        console.log(error);
-    }
-}
+      return response;
+    } catch (error) {}
+  }
+};
 
-export { getMovieSearched }
+export { getMovieSearched };

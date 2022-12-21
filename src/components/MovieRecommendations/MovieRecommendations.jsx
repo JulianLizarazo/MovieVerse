@@ -16,12 +16,13 @@ export default function MovieRecommendations({ movieRecommendations }) {
       <h2 className="text">Recomendaciones</h2>
       <section className={`movie-recommendations__movie text scroll-horizontal-${theme}`}>
         {movieRecommendations?.map((movieRecommendation) => (
-          <div onClick={handleReload}>
+          <div onClick={handleReload} key={movieRecommendation.id}>
             <MovieByGenre
               id={movieRecommendation.id}
               title={movieRecommendation.title}
               poster={movieRecommendation.poster_path}
               voteAverage={movieRecommendation.vote_average}
+              
             />
           </div>
         ))}

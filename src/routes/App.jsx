@@ -12,6 +12,7 @@ import { FavouriteMovieListContext } from "../context/FavouriteMovieListContext"
 import { FavouriteMovies } from "../pages/FavouriteMovies/FavouriteMovies";
 import { useContext } from "react";
 import ScrollToTop from "./ScrollToTop.jsx";
+import { NotFound } from "../pages/NotFound/NotFound";
 
 function App() {
   const themeInitialState = useChangeColorMode();
@@ -40,6 +41,7 @@ function App() {
                     path="/favourites"
                     element={<FavouriteMovies />}
                   />
+                  <Route exact path="*" element={ <NotFound/> } />
                 </Routes>
               </Layout>
             </ScrollToTop>

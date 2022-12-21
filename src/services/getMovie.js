@@ -8,7 +8,7 @@ const getMovie = async idMovie => {
         return response;
 
     } catch(error){
-        console.log(error);
+       
     } 
 }
 

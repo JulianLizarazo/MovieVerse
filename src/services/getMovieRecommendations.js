@@ -5,7 +5,7 @@ const getMovieRecommendations = async (movieId) => {
     const response = await API(`movie/${movieId}/recommendations`);
     return response;
   } catch (error) {
-    console.log(error);
+    
   }
 };
 

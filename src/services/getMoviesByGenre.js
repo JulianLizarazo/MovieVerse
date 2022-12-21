@@ -12,7 +12,7 @@ const getMoviesByGenre = async (genre, page = 1) => {
 
         return response;
     } catch (error){
-        console.log(error);
+       
     }
 }
 
