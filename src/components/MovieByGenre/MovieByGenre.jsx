@@ -5,6 +5,7 @@ import "./MovieByGenre.scss";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { IMAGES_URL } from "../../api/images";
 
 
 const animateProps = {
@@ -15,7 +16,7 @@ const animateProps = {
 
 const MovieByGenre = ({ id, title, poster, voteAverage,}) => {
   const styles = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w200${poster})`,
+    backgroundImage: `url(${IMAGES_URL}w200${poster})`,
   };
 
   const { width } = useWindowSize();

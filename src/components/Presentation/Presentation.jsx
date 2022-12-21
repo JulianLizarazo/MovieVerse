@@ -5,6 +5,7 @@ import { useParallax } from "react-scroll-parallax";
 import { AiOutlineHeart, AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { motion } from "framer-motion";
 import "./Presentation.scss";
+import { IMAGES_URL } from "../../api/images";
 
 const favouriteAnimation = {
   scale: 1.1,
@@ -23,7 +24,7 @@ const Image = ({ path, alt }) => {
   return (
     <div>
       <img
-        src={`https://image.tmdb.org/t/p/w500${path}`}
+        src={`${IMAGES_URL}w500${path}`}
         width="250px"
         height="350px"
         loading="lazy"

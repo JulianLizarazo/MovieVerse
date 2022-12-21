@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { IMAGES_URL } from "../../api/images";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import "./MovieProductionCompanies.scss";
 
@@ -18,7 +19,7 @@ export default function MovieProductionCompanies({ productionCompanies }){
           >
             {productionCompanie.logo_path ? (
               <img
-                src={`https://image.tmdb.org/t/p/w200${productionCompanie.logo_path}`}
+                src={`${IMAGES_URL}w200${productionCompanie.logo_path}`}
                 width="200px"
                 height="100px"
                 loading="lazy"

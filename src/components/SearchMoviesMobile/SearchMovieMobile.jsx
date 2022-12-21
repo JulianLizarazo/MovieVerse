@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
+import { IMAGES_URL } from "../../api/images";
 
 const SearchMovieMobile = ({
   variants,
@@ -49,7 +50,7 @@ const SearchMovieMobile = ({
             <Link to={`/movies/${movie?.id}`} onClick={() => setTimeout(() => {window.location.reload()}, 1)} className="link">
               <article className={`movies-searched__movie movie-searched-${theme}`} onClick={hiddenMenu}>
               <img
-                  src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+                  src={`${IMAGES_URL}w92${movie.poster_path}`}
                   loading="lazy"
                   width="70px"
                   height="90px"

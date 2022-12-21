@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { IMAGES_URL } from "../../api/images";
 
 const hover = {
   scale: 1.2,
@@ -40,7 +41,7 @@ const DesktopTrendingMovie = ({
       </aside>
       <div
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${poster})`,
+          backgroundImage: `url(${IMAGES_URL}original${poster})`,
         }}
         className="desktop-trending-movie__principal"
         aria-label={alt}

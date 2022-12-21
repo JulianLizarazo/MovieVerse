@@ -1,15 +1,13 @@
 import { useContext } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { IMAGES_URL } from "../../api/images";
 import { ColorModeContext } from "../../context/ColorModeContext";
-import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConfirmation";
-import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesButton";
-import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import "./TrendingMovie.scss";
 
-const TrendingMovie = ({ id, alt, poster, voteAverage, title }) => {
+const TrendingMovie = ({ id, alt, poster, voteAverage}) => {
   const styles = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w200${poster})`,
+    backgroundImage: `url(${IMAGES_URL}w200${poster})`,
   };
 
   const { theme } = useContext(ColorModeContext);

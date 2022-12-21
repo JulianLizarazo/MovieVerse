@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { useContext, useRef } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { IMAGES_URL } from "../../api/images";
 
 const animateProps = {
   scale: 1.5,
@@ -50,7 +51,7 @@ const SwiperMovieGallery = ({ imageType }) => {
         {imageType?.map((image) => (
           <SwiperSlide className="movie-gallery-images__backdrop--slide">
             <img
-              src={`https://image.tmdb.org/t/p/w1280${image.file_path}`}
+              src={`${IMAGES_URL}w1280${image.file_path}`}
               loading="lazy"
               className="gallery-img"
             />

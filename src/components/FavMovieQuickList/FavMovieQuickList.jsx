@@ -5,6 +5,7 @@ import { BiTrashAlt } from "react-icons/bi";
 import { useContext, useState } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { IMAGES_URL } from "../../api/images";
 
 const hover = {
   backgroundColor: "#400808",
@@ -47,7 +48,7 @@ const FavMovieQuickList = ({
         className={`favourite-movies-section__movie text favourite-movies-section__movie-${theme}`}
       >
         <img
-          src={`https://image.tmdb.org/t/p/w154${posterMovie}`}
+          src={`${IMAGES_URL}w154${posterMovie}`}
           alt={posterAltMovie}
           loading="lazy"
           width="80px"

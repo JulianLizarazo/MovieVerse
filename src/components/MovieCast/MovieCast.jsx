@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { IMAGES_URL } from "../../api/images";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { useMovieCredits } from "../../hooks/useMovieCredits";
 import "./MovieCast.scss";
@@ -13,7 +14,7 @@ const MovieCast = ({ id }) => {
         {cast.map((actor) => (
           <article className={`cast-movie__actor border-${theme}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+              src={`${IMAGES_URL}w200${actor.profile_path}`}
               loading="lazy"
               alt={`Actor ${actor.name}`}
               height="200px"

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { ColorModeContext } from "../../context/ColorModeContext";
 import { RiSendPlane2Fill } from "react-icons/ri";
+import { IMAGES_URL } from "../../api/images";
 const variantsSearchInput = {
   open: {
     width: "400px",
@@ -59,7 +60,7 @@ const SearchMovieDesktop = ({
                 onClick={hiddenMenu}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+                  src={`${IMAGES_URL}w92${movie.poster_path}`}
                   loading="lazy"
                   width="70px"
                   height="90px"

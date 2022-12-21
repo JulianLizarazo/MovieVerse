@@ -6,6 +6,7 @@ import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConf
 import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesButton";
 import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import "./MoviePresentationMobile.scss";
+import { IMAGES_URL } from "../../api/images";
 
 export default function MoviePresentationMobile({
   poster_path,
@@ -15,7 +16,7 @@ export default function MoviePresentationMobile({
   id,
 }) {
   const styles = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/w780${backdrop_path})`,
+    backgroundImage: `url(${IMAGES_URL}w780${backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -29,7 +30,7 @@ export default function MoviePresentationMobile({
     <>
       <section className="movie-presentation-mobile" style={styles}>
         <img
-          src={`https://image.tmdb.org/t/p/w342${poster_path}`}
+          src={`${IMAGES_URL}w342${poster_path}`}
           loading="lazy"
         />
       </section>

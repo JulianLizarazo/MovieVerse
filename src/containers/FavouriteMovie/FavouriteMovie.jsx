@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { FavouriteMovieListContext } from "../../context/FavouriteMovieListContext";
 import { NoticeSlideModal } from "../../components/NoticeSlideModal/NoticeSlideModal";
 import { ColorModeContext } from "../../context/ColorModeContext";
+import { IMAGES_URL } from "../../api/images";
 
 const removeAnimation = {
   eliminate: {
@@ -54,7 +55,7 @@ const FavouriteMovie = ({
         transition={{ duration: 1 }}
       >
         <img
-          src={`https://image.tmdb.org/t/p/original${moviePoster}`}
+          src={`${IMAGES_URL}original${moviePoster}`}
           alt={moviePosterAlt}
           loading="lazy"
           width="200px"

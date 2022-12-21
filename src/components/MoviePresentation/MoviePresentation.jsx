@@ -4,6 +4,7 @@ import { AddToFavouritesButton } from "../AddToFavouritesButton/AddToFavouritesB
 import { useAddedAnimationConfirmation } from "../../hooks/useAddedAnimationConfirmation";
 import { NoticeSlideModal } from "../NoticeSlideModal/NoticeSlideModal";
 import { AnimatePresence } from "framer-motion";
+import { IMAGES_URL } from "../../api/images";
 
 export default function MoviePresentation({
   poster_path,
@@ -13,7 +14,7 @@ export default function MoviePresentation({
   id,
 }) {
   const styles = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+    backgroundImage: `url(${IMAGES_URL}original${backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
@@ -29,7 +30,7 @@ export default function MoviePresentation({
       <section className="movie-desktop__main-info--title">
         <div className="img-and-button-container">
           <img
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            src={`${IMAGES_URL}w500${poster_path}`}
             width="250px"
             height="350px"
             alt={`Pelicula ${title}`}

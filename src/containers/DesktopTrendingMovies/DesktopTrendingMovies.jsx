@@ -16,6 +16,7 @@ import { DesktopTrendingMovie } from "../../components/DesktopTrendingMovie/Desk
 import { AiFillRightCircle, AiFillLeftCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { IMAGES_URL } from "../../api/images";
 
 const animateProps = {
   scale: 1.5,
@@ -41,7 +42,7 @@ export default function DesktopTrendingMovies(){
         <SwiperSlide className="trending-movies-img">
           <div
             style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/original${trendingMovie.poster})`,
+              backgroundImage: `url(${IMAGES_URL}original${trendingMovie.poster})`,
             }}
             className="trending-movies-img__container"
             aria-label={trendingMovie.alt}
